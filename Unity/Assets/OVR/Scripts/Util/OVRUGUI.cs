@@ -167,7 +167,7 @@ public class OVRUGUI
 
         NewGUIManager = new GameObject();
         NewGUIManager.name = "GUIManager";
-        NewGUIManager.transform.parent = GameObject.Find("OVRGUIMain").transform;
+        NewGUIManager.transform.SetParent(GameObject.Find("OVRGUIMain").transform);
         NewGUIManager.transform.localPosition = Vector3.zero;
         NewGUIManager.transform.localEulerAngles = Vector3.zero;
         NewGUIManager.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
@@ -245,7 +245,7 @@ public class OVRUGUI
     {
         gameObject = ComponentComposition(gameObject);
         gameObject.name = name;
-        gameObject.transform.parent = NewGUIManager.transform;
+        gameObject.transform.SetParent(NewGUIManager.transform);
 
 		RectTransform r = gameObject.GetComponent<RectTransform>();
         r.localPosition = new Vector3(0.0f, posY -= offsetY, 0.0f);
@@ -282,7 +282,7 @@ public class OVRUGUI
         text.GetComponent<Text>().font = (Font)Resources.Load("DINPro-Bold");
         text.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
 
-        text.transform.parent = GO.transform;
+        text.transform.SetParent(GO.transform);
         text.name = "TextBox";
 
         return GO;
