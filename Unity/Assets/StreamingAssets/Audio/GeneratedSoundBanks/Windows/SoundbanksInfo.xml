@@ -3,7 +3,7 @@
 	<RootPaths>
 		<ProjectRoot>C:\Development\GGJ2015\GGJ2015Wwise\</ProjectRoot>
 		<SourceFilesRoot>C:\Development\GGJ2015\GGJ2015Wwise\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Development\GGJ2015\GGJ2015Wwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<SoundBanksRoot>C:\Development\GGJ2015\Unity\Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
 		<ExternalSourcesOutputRoot>C:\Development\GGJ2015\GGJ2015Wwise\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
