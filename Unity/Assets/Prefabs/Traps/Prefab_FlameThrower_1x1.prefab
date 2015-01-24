@@ -219,7 +219,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 3
+      scalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -234,7 +234,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .833333313
+          value: .600000024
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -257,7 +257,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .150000006
+          value: .5
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -466,7 +466,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
       minMaxState: 0
-    cnt0: 30
+    cnt0: 1
     cnt1: 30
     cnt2: 30
     cnt3: 30
@@ -474,7 +474,7 @@ ParticleSystem:
     time1: 0
     time2: 0
     time3: 0
-    m_BurstCount: 0
+    m_BurstCount: 1
   SizeModule:
     enabled: 1
     curve:
@@ -483,7 +483,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .5
+          value: .273972601
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -2647,7 +2647,7 @@ ParticleSystem:
         ctime7: 0
         atime0: 0
         atime1: 3084
-        atime2: 51272
+        atime2: 45489
         atime3: 65535
         atime4: 0
         atime5: 0
