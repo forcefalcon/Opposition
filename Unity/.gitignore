@@ -11,3 +11,8 @@
 /*.userprefs
 /*.pidb
 /*.booproj
+
+*.pdb.meta
+
+/Assets/UnityVS/
+/Assets/UnityVS.meta
