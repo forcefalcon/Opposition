@@ -1534,9 +1534,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f25b2bbed0d9dc47b916e205c97d674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MouseTurnSensitivity: 15
   Acceleration: .100000001
   Damping: .300000012
+  RotationAmount: 1.5
+  MouseRotationMultiplier: 3.25
   BackAndSideDampen: .5
   GravityModifier: .379000008
 --- !u!114 &11455816
@@ -1562,7 +1563,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc31c947483832f4da190d4ce8514a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MouseYSensitivity: 15
+  MouseSensitivity: 15
+  GamepadSensitivity: 1.5
   MinimumY: -60
   MaximumY: 60
 --- !u!114 &11461280
