@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" SchemaVersion="10" SoundbankVersion="112">
+	<RootPaths>
+		<ProjectRoot>C:\Development\GGJ2015\GGJ2015Wwise\</ProjectRoot>
+		<SourceFilesRoot>C:\Development\GGJ2015\GGJ2015Wwise\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Development\GGJ2015\Unity\Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Development\GGJ2015\GGJ2015Wwise\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="4072029455" Language="SFX">
+			<ShortName>New_SoundBank</ShortName>
+			<Path>New_SoundBank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="461776654" Name="Play_balloonPop2"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="278013864" Language="SFX">
+					<ShortName>balloonPop2.wav</ShortName>
+					<Path>SFX\balloonPop2_DDC98EF4.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
