@@ -3,8 +3,6 @@ using System.Collections;
 
 public class CharacterMovementController : MonoBehaviour
 {
-	public float MouseTurnSensitivity = 15.0f;
-
 	/// <summary>
 	/// The rate acceleration during movement.
 	/// </summary>
@@ -14,6 +12,16 @@ public class CharacterMovementController : MonoBehaviour
 	/// The rate of damping on movement.
 	/// </summary>
 	public float Damping = 0.3f;
+	
+	/// <summary>
+	/// The rate of rotation when using a gamepad.
+	/// </summary>
+	public float RotationAmount = 1.5f;
+
+	/// <summary>
+	/// The multiplier applied to the mouse when rotating.
+	/// </summary>
+	public float MouseRotationMultiplier = 3.25f;
 
 	/// <summary>
 	/// The rate of additional damping when moving sideways or backwards.
@@ -24,7 +32,7 @@ public class CharacterMovementController : MonoBehaviour
 	/// Modifies the strength of gravity.
 	/// </summary>
 	public float GravityModifier = 0.379f;
-	
+
 	private float MoveScale = 1.0f;
 	private Vector3 MoveThrottle = Vector3.zero;
 	private float FallSpeed = 0.0f;
@@ -87,10 +95,10 @@ public class CharacterMovementController : MonoBehaviour
 
 	void UpdateMovement()
 	{
-		bool moveForward = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
-		bool moveLeft = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
-		bool moveRight = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
-		bool moveBack = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
+		bool moveForward = Input.GetKey(KeyCode.UpArrow);
+		bool moveLeft = Input.GetKey(KeyCode.LeftArrow);
+		bool moveRight = Input.GetKey(KeyCode.RightArrow);
+		bool moveBack = Input.GetKey(KeyCode.DownArrow);
 
 		MoveScale = 1.0f;
 
@@ -108,7 +116,7 @@ public class CharacterMovementController : MonoBehaviour
 		float moveInfluence = Acceleration * 0.1f * MoveScale;
 
 		// Run!
-		if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+		if (Input.GetKey(KeyCode.RightShift))
 			moveInfluence *= 2.0f;
 
 		Quaternion ort = transform.rotation;
@@ -124,10 +132,35 @@ public class CharacterMovementController : MonoBehaviour
 			MoveThrottle += ort * (transform.lossyScale.x * moveInfluence * BackAndSideDampen * Vector3.left);
 		if (moveRight)
 			MoveThrottle += ort * (transform.lossyScale.x * moveInfluence * BackAndSideDampen * Vector3.right);
+
+		float leftAxisX = Input.GetAxis("GamepadLeftX");
+		float leftAxisY = Input.GetAxis("GamepadLeftY");
+
+		if (leftAxisY > 0.0f)
+			MoveThrottle += ort * (leftAxisY * moveInfluence * Vector3.forward);
+
+		if (leftAxisY < 0.0f)
+			MoveThrottle += ort * (Mathf.Abs(leftAxisY) * moveInfluence * BackAndSideDampen * Vector3.back);
+
+		if (leftAxisX < 0.0f)
+			MoveThrottle += ort * (Mathf.Abs(leftAxisX) * moveInfluence * BackAndSideDampen * Vector3.left);
+
+		if (leftAxisX > 0.0f)
+			MoveThrottle += ort * (leftAxisX * moveInfluence * BackAndSideDampen * Vector3.right);
 	}
 
 	void UpdateRotation()
 	{
-		transform.Rotate(0, Input.GetAxis("Mouse X") * MouseTurnSensitivity, 0);
+		float rotateInfluence = SimulationRate * Time.deltaTime * RotationAmount;
+
+		Vector3 euler = transform.rotation.eulerAngles;
+
+		euler.y += Input.GetAxis("Mouse X") * rotateInfluence * MouseRotationMultiplier;
+
+		float rightAxisX = Input.GetAxis("GamepadRightX");
+
+		euler.y += rightAxisX * rotateInfluence;
+
+		transform.rotation = Quaternion.Euler(euler);
 	}
 }
