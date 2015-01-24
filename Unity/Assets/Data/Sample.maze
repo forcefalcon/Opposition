@@ -24,7 +24,7 @@
  			"ID": 4,
  			"Position": { "X": 2, "Y": 1},
  			"FloorMaterial": "Metal",
- 			"Connections": ["West"]
+ 			"Connections": ["South"]
  		},
  		{
  			"ID": 5,
@@ -36,9 +36,24 @@
 	"Traps": [
 		{
 			"ID": 1,
-			"RoomID": 3,
-			"Position": "NE",
-			"Type": "Spikes"
+			"RoomID": 4,
+			"Placement": "NorthEast",
+			"Type": "Spikes",
+			"KeyBinding": "Q"
+		},
+		{
+			"ID": 2,
+			"RoomID": 1,
+			"Placement": "NorthEast",
+			"Type": "Spikes",
+			"KeyBinding": "R"
+		},
+		{
+			"ID": 3,
+			"RoomID": 1,
+			"Placement": "NorthWest",
+			"Type": "Spikes",
+			"KeyBinding": "S"
 		}
 	]
 }
