@@ -4,39 +4,33 @@
  	"Rooms": [
  		{
  			"ID": 1,
- 			"Position": { "X": 0, "Y": 2},
+ 			"Position": { "X": 0, "Y": 0},
  			"FloorMaterial": "Metal",
  			"Connections": ["East"]
  		},
  		{
  			"ID": 2,
- 			"Position": { "X": 1, "Y": 2},
+ 			"Position": { "X": 1, "Y": 0},
  			"FloorMaterial": "Metal",
- 			"Connections": ["West", "South"]
+ 			"Connections": ["West", "East", "South"]
  		},
  		{
  			"ID": 3,
- 			"Position": { "X": 1, "Y": 1},
+ 			"Position": { "X": 2, "Y": 0},
  			"FloorMaterial": "Metal",
- 			"Connections": ["North", "East", "South"]
+ 			"Connections": ["West", "North"]
  		},
  		{
  			"ID": 4,
  			"Position": { "X": 2, "Y": 1},
  			"FloorMaterial": "Metal",
- 			"Connections": ["West"]
+ 			"Connections": ["South"]
  		},
  		{
  			"ID": 5,
- 			"Position": { "X": 0, "Y": 0},
+ 			"Position": { "X": 1, "Y": -1},
  			"FloorMaterial": "Metal",
  			"Connections": ["North"]
- 		}
-		{
- 			"ID": 6,
- 			"Position": { "X": 1, "Y": 0},
- 			"FloorMaterial": "Metal",
- 			"Connections": ["North", "West"]
  		}
  	]
 }
