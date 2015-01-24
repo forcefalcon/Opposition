@@ -55,12 +55,7 @@ MonoBehaviour:
         ObjectType: 7
       ID: -222937841
       Guid: e0662f8367d23643beac85c995ac6078
-  ExpandedItems:
-  - /GGJ2015Wwise
-  - /GGJ2015Wwise/Events
-  - /GGJ2015Wwise/Events/Default Work Unit
-  - /GGJ2015Wwise/SoundBanks
-  - /GGJ2015Wwise/SoundBanks/Default Work Unit
+  ExpandedItems: []
   m_lastPopulateTimePsrt1: -1022851567
   m_lastPopulateTimePart2: -1999501912
   autoPopulateEnabled: 1
