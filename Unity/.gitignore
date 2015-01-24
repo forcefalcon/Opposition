@@ -16,3 +16,6 @@
 
 /Assets/UnityVS/
 /Assets/UnityVS.meta
+
+*.mdb
+*.mdb.meta
