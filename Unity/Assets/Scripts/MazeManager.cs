@@ -8,7 +8,16 @@ public class MazeManager : MonoBehaviour
 	public static MazeManager Instance { get; private set; }
 
 	public GameObject MetalRoomPrefab;
-
+	public GameObject WoodRoomPrefab;
+	public GameObject ConcreteRoomPrefab;
+	public GameObject WaterRoomPrefab;
+	public GameObject DirtRoomPrefab;
+	
+	public GameObject SpikesTrapPrefab;
+	public GameObject FlameThrowerTrapPrefab;
+	public GameObject LiquidThrowerTrapPrefab;
+	public GameObject ProjectilesTrapPrefab;
+		
 	public int StartingRoomID;
 	public List<int> GoalRoomIDs;
 	
@@ -49,11 +58,7 @@ public class MazeManager : MonoBehaviour
 		GoalRoomIDs = mazeInfo.GoalRoomIDs;
 			
 		foreach (Serialization.RoomInfo roomInfo in mazeInfo.Rooms) {
-			// TODO validate roomInfo and Debug.Log errors
-			// (e.g. invalid connections, overlapping rooms)
-
-			// TODO switch on roomInfo.FloorMaterial to get the right prefab
-			var roomPrefab = MetalRoomPrefab;
+			var roomPrefab = SelectRoomPrefab(roomInfo.FloorMaterial);
 			var instance = (GameObject)GameObject.Instantiate(
 				roomPrefab, 
 				new Vector3(
@@ -70,9 +75,44 @@ public class MazeManager : MonoBehaviour
 		}
 		
 		foreach (Serialization.TrapInfo trapInfo in mazeInfo.Traps) {
+			GameObject trapPrefab = SelectTrapPrefab(trapInfo.Type);
 		}
-		//var trap = instance.GetComponent<Trap>();
-		//room.Connections = roomInfo.Connections;
+	}
+	
+	private GameObject SelectRoomPrefab(RoomMaterialType materialType)
+	{
+		switch (materialType)
+		{
+			case RoomMaterialType.Metal:
+				return MetalRoomPrefab;
+			case RoomMaterialType.Wood:
+				return WoodRoomPrefab;
+			case RoomMaterialType.Concrete:
+				return ConcreteRoomPrefab;
+			case RoomMaterialType.Dirt:
+				return DirtRoomPrefab;
+			case RoomMaterialType.Water:
+				return WaterRoomPrefab;
+		}
+		Debug.LogWarning("Unknown floor material type " + materialType + ", defaulting to Metal");
+		return MetalRoomPrefab;
+	}
+	
+	private GameObject SelectTrapPrefab(TrapType trapType)
+	{
+		switch (trapType)
+		{
+			case TrapType.Spikes:
+				return SpikesTrapPrefab;
+			case TrapType.FlameThrower:
+				return FlameThrowerTrapPrefab;
+			case TrapType.LiquidThrower:
+				return LiquidThrowerTrapPrefab;
+			case TrapType.Projectiles:
+				return ProjectilesTrapPrefab;
+		}
+		Debug.LogWarning("Unknown trap type " + trapType + ", defaulting to Spikes");
+		return SpikesTrapPrefab;
 	}
 
 	private static bool ValidateMaze(Serialization.MazeInfo mazeInfo){
@@ -83,16 +123,26 @@ public class MazeManager : MonoBehaviour
 		}
 		List<string> errors = new List<string>();
 		
+		var roomIDs = new HashSet<int>();
+		// Ensure no two rooms share the same ID
 		// Ensure no two rooms occupy the same space
-		var roomsPerLocation = new Dictionary<Serialization.IntVector2, Serialization.RoomInfo>();
+		var roomsByLocation = new Dictionary<Serialization.IntVector2, Serialization.RoomInfo>();
 		foreach (var room in mazeInfo.Rooms)
 		{
+			if (roomIDs.Contains (room.ID))
+			{
+				errors.Add ("Duplicate Room ID " + room.ID);
+			}
+			else
+			{
+				roomIDs.Add (room.ID);
+			}
 			Serialization.RoomInfo existingRoom;
-			if (roomsPerLocation.TryGetValue (room.Position, out existingRoom))
+			if (roomsByLocation.TryGetValue (room.Position, out existingRoom))
 			{
 				errors.Add ("Two rooms defined for location " + room.Position.ToString () + ": IDs " + room.ID + " and " + existingRoom.ID);
 			}
-			roomsPerLocation[room.Position] = room;
+			roomsByLocation[room.Position] = room;
 		}
 		// Ensure all rooms connect properly
 		foreach (var room in mazeInfo.Rooms)
@@ -127,7 +177,7 @@ public class MazeManager : MonoBehaviour
 						continue;
 				}
 				Serialization.RoomInfo otherRoom;
-				if (!roomsPerLocation.TryGetValue(otherLocation, out otherRoom))
+				if (!roomsByLocation.TryGetValue(otherLocation, out otherRoom))
 				{
 					errors.Add ("Room with ID " + room.ID + " has no neighbor " + direction.ToString() + " of it");
 				}
@@ -135,6 +185,49 @@ public class MazeManager : MonoBehaviour
 				{
 					errors.Add ("Room with ID " + otherRoom.ID + " does not reciprocate a Connection defined in Room with ID " + room.ID);
 				}
+			}
+		}
+		
+		var trapIDs = new HashSet<int>();
+		var trapsByKeyBinding = new Dictionary<KeyCode, int>();
+		var trapPlacements = new HashSet<int>();
+		// Ensure traps are defined in existing rooms
+		foreach (var trap in mazeInfo.Traps)
+		{
+			if (trapIDs.Contains (trap.ID))
+			{
+				errors.Add ("Duplicate Trap ID " + trap.ID);
+			}
+			else
+			{
+				trapIDs.Add (trap.ID);
+			}
+			
+			if (trapsByKeyBinding.ContainsKey(trap.KeyBinding))
+			{
+				errors.Add (trap.KeyBinding + " key is already bound to Trap with ID " + trapsByKeyBinding[trap.KeyBinding]);
+			}
+			else
+			{
+				trapsByKeyBinding[trap.KeyBinding] = trap.ID;
+			}
+			
+			if (!roomIDs.Contains (trap.RoomID))
+			{
+				errors.Add ("Trap with ID " + trap.ID + " references non-existent Room ID " + trap.RoomID);
+			}
+			
+			// combine the room ID and placement enum in a single int value for easily spotting dupes
+			var placement = (trap.RoomID << 4) | (((int)trap.Placement) & 0xF); 
+			if (trapPlacements.Contains(placement))
+			{
+			Debug.Log (placement);
+				errors.Add ("The placement of Trap with ID " + trap.ID + " is invalid because Room with ID " + trap.RoomID + " already contains a Trap in its " + trap.Placement.ToString() + " section.");
+			}
+			else
+			{
+				Debug.Log (placement);
+				trapPlacements.Add (placement);
 			}
 		}
 		
