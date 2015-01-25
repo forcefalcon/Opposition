@@ -82,7 +82,7 @@ public class MazeManager : MonoBehaviour
 		var player = (GameObject)GameObject.Instantiate(PlayerPrefab);
 		player.transform.position = startingRoomPos;
 		player.transform.Rotate(new Vector3(0f, mazeInfo.StartingDirection.GetRotation(), 0f));
-		player.tag = "Player";
+		player.name = "MazePlayerController";
 
 		player.GetComponent<CameraPicker>().Initialize(UseOVR);
 	}
