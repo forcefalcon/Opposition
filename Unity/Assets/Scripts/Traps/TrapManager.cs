@@ -5,40 +5,54 @@ public class TrapManager : MonoBehaviour
 {
 	public static TrapManager Instance { get; private set; }
 	
+	private const float GlobalTrapCooldown = 5f;
+
 	public GameObject SpikesTrapPrefab;
 	public GameObject FlameThrowerTrapPrefab;
 	public GameObject LiquidThrowerTrapPrefab;
 	public GameObject ProjectilesTrapPrefab;
 	
-	private Dictionary<KeyCode, TrapController> Traps;
-	
-	public TrapController ActiveTrap { get; private set; }
+	private float _Cooldown;
+	private Dictionary<KeyCode, TrapController> _TrapBindings;
 	
 	public void Awake()
 	{
 		Instance = this;
-		Traps = new Dictionary<KeyCode, TrapController>();
+		_TrapBindings = new Dictionary<KeyCode, TrapController>();
 	}
 	
 	public void Update()
 	{
-		if (ActiveTrap == null)
+		if (_Cooldown > 0f)
 		{
-			foreach (var kvp in Traps)
+			_Cooldown -= Time.deltaTime;
+		}
+		if (_Cooldown <= 0)
+		{
+			foreach (var kvp in _TrapBindings)
 			{
-				if (Input.GetKeyDown(kvp.Key))
+				var trapController = kvp.Value;
+				if (Input.GetKeyDown(kvp.Key) && trapController.TryActivate())
 				{
-					Debug.Log ("Activating " + kvp.Value.name + " trap!");
-					//ActiveTrap = kvp.Value;
+					_Cooldown = GlobalTrapCooldown;
 					break;
 				}
 			}
+		}
+		else
+		{
+			// Play "cooldown" sound?
 		}
 	}
 	
 	public void RegisterTrap(TrapController controller, KeyCode keyBinding)
 	{
-		Traps[keyBinding] = controller;
+		_TrapBindings[keyBinding] = controller;
+	}
+	
+	public void Clear()
+	{
+		_TrapBindings.Clear();
 	}
 }
 

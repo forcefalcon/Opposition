@@ -38,14 +38,11 @@ public abstract class TrapController : MonoBehaviour {
 		}
 	}
 	
-	public virtual void Fire()
+	public virtual bool TryActivate()
 	{
-		
-	}
-	
-	public virtual void EndFire()
-	{
-		
+		// Start animating, keep track of timing
+		// Subclasses may do special stuff here
+		return false;
 	}
 	
 	private Vector3 GetPlacementPosition()

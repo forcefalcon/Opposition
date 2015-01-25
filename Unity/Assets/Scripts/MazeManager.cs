@@ -282,5 +282,6 @@ public class MazeManager : MonoBehaviour
 			GameObject.Destroy(room.gameObject);
 		}
 		Rooms.Clear ();
+		TrapManager.Instance.Clear();
 	}
 }
