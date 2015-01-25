@@ -7,6 +7,7 @@ public class SoundOcclusion : MonoBehaviour
 
 	private float _timer = 0.0f;
 	private Transform _transform;
+	private Transform _playerTransform = null;
 
 	void Start()
 	{
@@ -27,9 +28,22 @@ public class SoundOcclusion : MonoBehaviour
 
 	void UpdateOcclusion()
 	{
+		if (_playerTransform == null)
+		{
+			GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+			if (player != null)
+			{
+				_playerTransform = player.transform;
+			}
+			else
+			{
+				return;
+			}
+		}
+
 		Vector3 start = _transform.position;
-		GameObject player = GameObject.FindGameObjectWithTag("Player");
-		Vector3 end = player.transform.position;
+		Vector3 end = _playerTransform.position;
 		Vector3 toEnd = end - start;
 		float toEndDist = toEnd.magnitude;
 		Vector3 toEndNorm = toEnd / toEndDist;
