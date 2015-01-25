@@ -756,6 +756,8 @@ GameObject:
   - 143: {fileID: 14361280}
   - 114: {fileID: 11461286}
   - 114: {fileID: 11437664}
+  - 114: {fileID: 11482230}
+  - 114: {fileID: 11482232}
   m_Layer: 0
   m_Name: MazePlayerController
   m_TagString: Untagged
@@ -1622,6 +1624,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RunSpeed: 8
+--- !u!114 &11482230
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 701b620a10a9fbc46981fb09d05d7be4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FootstepEvent: Player_Footsteps_E
+  FootstepRate: 1
+  SpeedRTPC: Player_Speed
+  LowSpeedRTPC: 2
+  HighSpeedRTPC: 3
+  FloorTypeSwitch: Floortype_SW
+--- !u!114 &11482232
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6195e99b27af7d649b3a03726352b345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_posOffsetData: {fileID: 0}
+  isEnvironmentAware: 0
+  isStaticObject: 0
 --- !u!137 &13761280
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

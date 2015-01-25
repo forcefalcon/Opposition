@@ -26,10 +26,242 @@ MonoBehaviour:
       ID: 461776654
       Guid: 66c7ec8e6033be40bf3427869632f021
       maxAttenuation: 0
+  - PhysicalPath: Events\Global_Game_Jam.wwu
+    ParentPhysicalPath: 
+    Guid: '{E5DAF4AF-D907-4C72-A5AF-F93DA3B2215E}'
+    List:
+    - Name: AMB_PLAY
+      Path: Global_Game_Jam\Ambiance\AMB_PLAY
+      PathAndIcons:
+      - ElementName: Global_Game_Jam
+        ObjectType: 12
+      - ElementName: Ambiance
+        ObjectType: 4
+      - ElementName: AMB_PLAY
+        ObjectType: 3
+      ID: -1913465040
+      Guid: 91dcb67629a53f4aaeeed3d751aeadd9
+      maxAttenuation: 10
+    - Name: Player_Footsteps_E
+      Path: Global_Game_Jam\Player\Player_Footsteps\Player_Footsteps_E
+      PathAndIcons:
+      - ElementName: Global_Game_Jam
+        ObjectType: 12
+      - ElementName: Player
+        ObjectType: 4
+      - ElementName: Player_Footsteps
+        ObjectType: 4
+      - ElementName: Player_Footsteps_E
+        ObjectType: 3
+      ID: 423994534
+      Guid: 8594eacbea1049468a16c2c47a185395
+      maxAttenuation: 0
+    - Name: SFX_FeedBack_Collectibles_Shimmer
+      Path: Global_Game_Jam\SFX\SFX_Feedbacks\SFX_FeedBack_Collectibles_Shimmer
+      PathAndIcons:
+      - ElementName: Global_Game_Jam
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: SFX_Feedbacks
+        ObjectType: 4
+      - ElementName: SFX_FeedBack_Collectibles_Shimmer
+        ObjectType: 3
+      ID: 991582462
+      Guid: d61fc862fc72724aaa1e3f6a50327813
+      maxAttenuation: 20
+    - Name: SFX_Feedbacks_Collectibles_OpenChest
+      Path: Global_Game_Jam\SFX\SFX_Feedbacks\SFX_Feedbacks_Collectibles_OpenChest
+      PathAndIcons:
+      - ElementName: Global_Game_Jam
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: SFX_Feedbacks
+        ObjectType: 4
+      - ElementName: SFX_Feedbacks_Collectibles_OpenChest
+        ObjectType: 3
+      ID: -15712063
+      Guid: c28f4a40037c0b42ae4ce14a97865f44
+      maxAttenuation: 0
+    - Name: SFX_Torches
+      Path: Global_Game_Jam\SFX\SFX_Torches\SFX_Torches
+      PathAndIcons:
+      - ElementName: Global_Game_Jam
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: SFX_Torches
+        ObjectType: 4
+      - ElementName: SFX_Torches
+        ObjectType: 3
+      ID: -1297922759
+      Guid: d89e3e9488ed8c428b828645672881d4
+      maxAttenuation: 10
+    - Name: SFX_Traps_Impacts_Flames_E
+      Path: Global_Game_Jam\SFX\SFX_Traps\SFX_Traps_Impact\SFX_Traps_Impacts_Flames_E
+      PathAndIcons:
+      - ElementName: Global_Game_Jam
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: SFX_Traps
+        ObjectType: 4
+      - ElementName: SFX_Traps_Impact
+        ObjectType: 4
+      - ElementName: SFX_Traps_Impacts_Flames_E
+        ObjectType: 3
+      ID: -1688204854
+      Guid: dab48d7091d5604f8d4594c8b8c483a3
+      maxAttenuation: 0
+    - Name: SFX_Traps_Impacts_Guillotine_E
+      Path: Global_Game_Jam\SFX\SFX_Traps\SFX_Traps_Impact\SFX_Traps_Impacts_Guillotine_E
+      PathAndIcons:
+      - ElementName: Global_Game_Jam
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: SFX_Traps
+        ObjectType: 4
+      - ElementName: SFX_Traps_Impact
+        ObjectType: 4
+      - ElementName: SFX_Traps_Impacts_Guillotine_E
+        ObjectType: 3
+      ID: -515319220
+      Guid: 20ae0301c06ac24fa9d35061a2a075ef
+      maxAttenuation: 0
+    - Name: SFX_Traps_Impacts_Liquids_E
+      Path: Global_Game_Jam\SFX\SFX_Traps\SFX_Traps_Impact\SFX_Traps_Impacts_Liquids_E
+      PathAndIcons:
+      - ElementName: Global_Game_Jam
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: SFX_Traps
+        ObjectType: 4
+      - ElementName: SFX_Traps_Impact
+        ObjectType: 4
+      - ElementName: SFX_Traps_Impacts_Liquids_E
+        ObjectType: 3
+      ID: -1974718583
+      Guid: d7dfc67a5d85104db98575f8cc0b416d
+      maxAttenuation: 0
+    - Name: SFX_Traps_Impacts_Projectiles_E
+      Path: Global_Game_Jam\SFX\SFX_Traps\SFX_Traps_Impact\SFX_Traps_Impacts_Projectiles_E
+      PathAndIcons:
+      - ElementName: Global_Game_Jam
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: SFX_Traps
+        ObjectType: 4
+      - ElementName: SFX_Traps_Impact
+        ObjectType: 4
+      - ElementName: SFX_Traps_Impacts_Projectiles_E
+        ObjectType: 3
+      ID: -1295701994
+      Guid: 55a8bed0af40214d8d3fa4551132c98f
+      maxAttenuation: 0
+    - Name: SFX_Traps_Impacts_Spikes_E
+      Path: Global_Game_Jam\SFX\SFX_Traps\SFX_Traps_Impact\SFX_Traps_Impacts_Spikes_E
+      PathAndIcons:
+      - ElementName: Global_Game_Jam
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: SFX_Traps
+        ObjectType: 4
+      - ElementName: SFX_Traps_Impact
+        ObjectType: 4
+      - ElementName: SFX_Traps_Impacts_Spikes_E
+        ObjectType: 3
+      ID: 1953162899
+      Guid: 08c0c39cb2ec1a4b9382af19ffff264e
+      maxAttenuation: 0
+    - Name: SFX_Traps_Mechanisms_Flames_E
+      Path: Global_Game_Jam\SFX\SFX_Traps\SFX_Traps_Mechanisms\SFX_Traps_Mechanisms_Flames_E
+      PathAndIcons:
+      - ElementName: Global_Game_Jam
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: SFX_Traps
+        ObjectType: 4
+      - ElementName: SFX_Traps_Mechanisms
+        ObjectType: 4
+      - ElementName: SFX_Traps_Mechanisms_Flames_E
+        ObjectType: 3
+      ID: 924253443
+      Guid: 3e44f5cd6829884a851739cd74083237
+      maxAttenuation: 30
+    - Name: SFX_Traps_Mechanisms_Guillotine_E
+      Path: Global_Game_Jam\SFX\SFX_Traps\SFX_Traps_Mechanisms\SFX_Traps_Mechanisms_Guillotine_E
+      PathAndIcons:
+      - ElementName: Global_Game_Jam
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: SFX_Traps
+        ObjectType: 4
+      - ElementName: SFX_Traps_Mechanisms
+        ObjectType: 4
+      - ElementName: SFX_Traps_Mechanisms_Guillotine_E
+        ObjectType: 3
+      ID: 276062753
+      Guid: 7f4161b62cb7694d825fba5429044daf
+      maxAttenuation: 30
+    - Name: SFX_Traps_Mechanisms_Liquids_E
+      Path: Global_Game_Jam\SFX\SFX_Traps\SFX_Traps_Mechanisms\SFX_Traps_Mechanisms_Liquids_E
+      PathAndIcons:
+      - ElementName: Global_Game_Jam
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: SFX_Traps
+        ObjectType: 4
+      - ElementName: SFX_Traps_Mechanisms
+        ObjectType: 4
+      - ElementName: SFX_Traps_Mechanisms_Liquids_E
+        ObjectType: 3
+      ID: -423776266
+      Guid: 7da6c10e1688eb4f98c0170b809885f2
+      maxAttenuation: 30
+    - Name: SFX_Traps_Mechanisms_Projectiles_E
+      Path: Global_Game_Jam\SFX\SFX_Traps\SFX_Traps_Mechanisms\SFX_Traps_Mechanisms_Projectiles_E
+      PathAndIcons:
+      - ElementName: Global_Game_Jam
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: SFX_Traps
+        ObjectType: 4
+      - ElementName: SFX_Traps_Mechanisms
+        ObjectType: 4
+      - ElementName: SFX_Traps_Mechanisms_Projectiles_E
+        ObjectType: 3
+      ID: -528469611
+      Guid: fee1cfebdf924d4f97bf882e5b63fd77
+      maxAttenuation: 30
+    - Name: SFX_Traps_Mechanisms_Spikes_E
+      Path: Global_Game_Jam\SFX\SFX_Traps\SFX_Traps_Mechanisms\SFX_Traps_Mechanisms_Spikes_E
+      PathAndIcons:
+      - ElementName: Global_Game_Jam
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: SFX_Traps
+        ObjectType: 4
+      - ElementName: SFX_Traps_Mechanisms
+        ObjectType: 4
+      - ElementName: SFX_Traps_Mechanisms_Spikes_E
+        ObjectType: 3
+      ID: 57082998
+      Guid: 52f07ca2e6c8fe46aa78be5c18f52dd2
+      maxAttenuation: 30
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     ParentPhysicalPath: 
-    Guid: '{BAC854C1-8251-4963-B30B-F457D0BED579}'
+    Guid: '{4F56001C-34C6-473E-965F-6A4D18EB4E53}'
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
@@ -41,28 +273,87 @@ MonoBehaviour:
     ParentPhysicalPath: 
     Guid: '{0FB0557C-9CC9-48B5-9B20-0081B2385D7D}'
     List: []
+  - PhysicalPath: Switches\Global_Game_Jam.wwu
+    ParentPhysicalPath: 
+    Guid: '{AF1AE582-F4EF-485B-BDF4-720293D37C4F}'
+    List:
+    - Name: Accomplishment_InPercent
+      Path: Global_Game_Jam\Accomplishment_InPercent
+      PathAndIcons:
+      - ElementName: Global_Game_Jam
+        ObjectType: 12
+      - ElementName: Accomplishment_InPercent
+        ObjectType: 11
+      ID: -831752019
+      Guid: bfe40712ec2fc349aae7bc7b6c6da03d
+      values:
+      - Hundered_Percent
+      - Zer0_PerCent
+      ValueIcons:
+      - ElementName: Hundered_Percent
+        ObjectType: 10
+      - ElementName: Zer0_PerCent
+        ObjectType: 10
+      valueIDs: 1a1806c5f20dbfbd
+      ValueGuids:
+      - bytes: a7040d6968889c438ff77a7815d810f1
+      - bytes: 0b7c233dc71a9146be19b424b414be85
+    - Name: Floortype_SW
+      Path: Global_Game_Jam\Floortype_SW
+      PathAndIcons:
+      - ElementName: Global_Game_Jam
+        ObjectType: 12
+      - ElementName: Floortype_SW
+        ObjectType: 11
+      ID: -1794863382
+      Guid: bbb35a475a0f6142b365e15acf699eac
+      values:
+      - Floortype_Concrete
+      - Floortype_Dirt
+      - Floortype_Metal
+      - Floortype_Water
+      - Floortype_Wood
+      ValueIcons:
+      - ElementName: Floortype_Concrete
+        ObjectType: 10
+      - ElementName: Floortype_Dirt
+        ObjectType: 10
+      - ElementName: Floortype_Metal
+        ObjectType: 10
+      - ElementName: Floortype_Water
+        ObjectType: 10
+      - ElementName: Floortype_Wood
+        ObjectType: 10
+      valueIDs: 75a73e4fe744caafa582e4d7d9047db8cbfc4543
+      ValueGuids:
+      - bytes: 2d7573408cd3364989ebe3c0e256f12b
+      - bytes: 9a55493aab94874893e975092c77c61a
+      - bytes: a467533995abe8419a9a0993f3be25e4
+      - bytes: 8d4c7916073dba4d8c5783a3e41271be
+      - bytes: c373af1648768a4abfbfa794bcb6d119
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPhysicalPath: 
-    Guid: '{378771E6-9BA0-478F-AD44-1DBB2C07785F}'
+    Guid: '{BB75650D-AC5D-4769-A19C-2EC4311F9587}'
     List:
-    - Name: New_SoundBank
-      Path: Default Work Unit\New_SoundBank
+    - Name: AllSounds
+      Path: Default Work Unit\AllSounds
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: New_SoundBank
+      - ElementName: AllSounds
         ObjectType: 7
-      ID: -222937841
-      Guid: e0662f8367d23643beac85c995ac6078
+      ID: -1016504142
+      Guid: 75554f8544a5fe448fbe4497639eef81
   ExpandedItems:
   - /GGJ2015Wwise
   - /GGJ2015Wwise/Events
-  - /GGJ2015Wwise/Events/Default Work Unit
-  - /GGJ2015Wwise/SoundBanks
-  - /GGJ2015Wwise/SoundBanks/Default Work Unit
-  m_lastPopulateTimePsrt1: -1022851567
-  m_lastPopulateTimePart2: -1999501912
+  - /GGJ2015Wwise/Events/Global_Game_Jam
+  - /GGJ2015Wwise/Events/Global_Game_Jam/Ambiance
+  - /GGJ2015Wwise/Switches
+  - /GGJ2015Wwise/Switches/Global_Game_Jam
+  m_lastPopulateTimePsrt1: -176009763
+  m_lastPopulateTimePart2: -1999501731
   autoPopulateEnabled: 1
   basePath: Audio\GeneratedSoundBanks
   language: English(US)

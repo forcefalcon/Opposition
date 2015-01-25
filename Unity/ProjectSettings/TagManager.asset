@@ -3,6 +3,11 @@
 --- !u!78 &1
 TagManager:
   tags:
+  - Floortype_Concrete
+  - Floortype_Dirt
+  - Floortype_Metal
+  - Floortype_Water
+  - Floortype_Wood
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
