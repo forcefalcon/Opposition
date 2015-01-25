@@ -46,7 +46,7 @@ MonoBehaviour:
   DirtRoomPrefab: {fileID: 106676, guid: 535b44fb6ddb526449728633bc575ecf, type: 2}
   TrapGroupPrefab: {fileID: 159434, guid: a8165a582a544e945b2bc24c95c55d88, type: 2}
   PlayerPrefab: {fileID: 161376, guid: 3e0d99f788ba1b944bdc619256fd4831, type: 2}
-  UseOVR: 1
+  UseOVR: 0
   GoalRoomIDs: 
 --- !u!1001 &100100000
 Prefab:
