@@ -6,6 +6,8 @@ using System;
 
 public class MazeManager : MonoBehaviour
 {
+	private static readonly System.Random _Random = new System.Random();
+	
 	public static MazeManager Instance { get; private set; }
 
 	public GameObject MetalRoomPrefab;
@@ -28,12 +30,27 @@ public class MazeManager : MonoBehaviour
 	}
 		
 	public void Start(){
-		if (String.IsNullOrEmpty(levelName)) { 
-					levelName = "/Data/Sample.maze";
-				}
-		// testing
+		// testing - we would normally do a game setup screen
+		// where users either choose to generate a random map procedurally, 
+		// or enter a predefined seed used by the procedural generation.		
+		LoadMapFromFile(-1);
+	}
+
+	public void LoadMapFromFile(int mapIndex)
+	{
+		var pregeneratedMazes = Directory.GetFiles(Application.streamingAssetsPath + "/Data/", "Level*.maze");
+		string mazeFile;
+		if (mapIndex < 0)
+		{
+			mazeFile = pregeneratedMazes[_Random.Next(pregeneratedMazes.Length)];
+		}
+		else
+		{
+			mazeFile = pregeneratedMazes[mapIndex % pregeneratedMazes.Length];
+		}
+		
 		Serialization.MazeInfo mazeInfo = null;
-		using (var reader = new StreamReader(Application.streamingAssetsPath + levelName)) {
+		using (var reader = new StreamReader(mazeFile)) {
 			string json = reader.ReadToEnd();
 			mazeInfo = JsonConvert.DeserializeObject<Serialization.MazeInfo>(json);
 		}
@@ -42,6 +59,7 @@ public class MazeManager : MonoBehaviour
 		} else {
 			Debug.LogError ("No MazeInfo found");
 		}
+		
 	}
 
 	public void CreateMaze(Serialization.MazeInfo mazeInfo) {
