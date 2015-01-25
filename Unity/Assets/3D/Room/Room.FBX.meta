@@ -21,6 +21,7 @@ ModelImporter:
     100030: NorthDoor
     100032: WestDoor
     100034: SouthtDoor
+    100036: EastDoorFrame 1
     400000: Ceiling
     400002: Collisions
     400004: Door
@@ -39,6 +40,7 @@ ModelImporter:
     400030: NorthDoor
     400032: WestDoor
     400034: SouthtDoor
+    400036: EastDoorFrame 1
     2300000: Ceiling
     2300002: Collisions
     2300004: Door
@@ -56,6 +58,7 @@ ModelImporter:
     2300028: NorthDoor
     2300030: WestDoor
     2300032: SouthtDoor
+    2300034: EastDoorFrame 1
     3300000: Ceiling
     3300002: Collisions
     3300004: Door
@@ -73,6 +76,7 @@ ModelImporter:
     3300028: NorthDoor
     3300030: WestDoor
     3300032: SouthtDoor
+    3300034: EastDoorFrame 1
     4300000: Door
     4300002: NorthDoorFrame
     4300004: Ceiling
@@ -90,6 +94,7 @@ ModelImporter:
     4300028: NorthDoor
     4300030: WestDoor
     4300032: SouthtDoor
+    4300034: EastDoorFrame
     9500000: //RootNode
   materials:
     importMaterials: 1

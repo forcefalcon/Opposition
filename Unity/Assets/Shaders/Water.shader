@@ -1,52 +1,65 @@
-﻿Shader "GameJam/Alpha/AlphaDNSR" {
+﻿Shader "GameJam/Water" {
 	Properties {
-		_MainTex ("Base (RGB)", 2D) = "white" {}
-		_SpecColor("Specular Color",Color) = (1,1,1,1)
-		_Shininess("Glossiness",Range(0,5)) = 0.5
+		_Color ("Color",Color) = (1,1,1,1)
 		_BumpMap ("Bumpmap", 2D) = "bump" {}
 		_Cube ("Cubemap", CUBE) = "" {}
 		_ReflColor("Reflection Color",Color) = (1,1,1,1)
+		_RimPower("Fresnel",Range(0,5)) = 1
+		_Speed("Water Speed",vector) = (0.5,0.5,0.5,0.5)
 	}
 	SubShader {
-		Tags { "Queue" = "Transparent" "RenderType"="Transparent" }
-		ZWrite Off
-		Cull Off
+		Tags { "Queue" = "Geometry" "RenderType"="Opaque" }
+
 		LOD 200
 		
 		CGPROGRAM
-		#pragma surface surf BlinnPhong vertex:vert alpha
+		#pragma surface surf Lambert vertex:vert
 		#pragma target 3.0
+		#include "UnityCG.cginc"
 
-		sampler2D _MainTex;
 		sampler2D _BumpMap;
+		half4 _BumpMap_ST;
 		samplerCUBE _Cube;
+		fixed4 _Color;
 		fixed3 _ReflColor;
-		float _Shininess;
+		float4 _Speed;
+		float _RimPower;
 
 		struct Input {
-			float2 uv_MainTex;
-			float2 uv_BumpMap;
-			fixed4 color : COLOR;
+			float4 DistUV;
+			float3 viewDir;
 			float3 worldRefl;
 			INTERNAL_DATA
 		};
 
+
+		inline fixed3 combineNormalMaps (fixed3 base, fixed3 detail) {
+			base.z += 1.0;
+			detail.xy *= - 1.0;
+			return base * dot(base, detail) / base.z - detail;
+		}
 		void vert (inout appdata_full v, out Input o) {
 			UNITY_INITIALIZE_OUTPUT(Input,o);
-			o.color = v.color;
+			o.DistUV.xy = TRANSFORM_TEX(v.texcoord,_BumpMap);
+			o.DistUV.zw = o.DistUV.xy;
+			o.DistUV.xy += _Speed.xy * _Time.x;
+			o.DistUV.zw -= _Speed.zw * _Time.x;
 		}
+		
 		void surf (Input IN, inout SurfaceOutput o) {
-			half4 c = tex2D (_MainTex, IN.uv_MainTex);
+
 			
-			fixed3 bump = UnpackNormal (tex2D (_BumpMap, IN.uv_BumpMap));
-			fixed3 cubeMap = texCUBE (_Cube, WorldReflectionVector (IN, bump)).rgb;
+			fixed3 bump1 = UnpackNormal (tex2D (_BumpMap, IN.DistUV.xy));
+			fixed3 bump2 = UnpackNormal (tex2D (_BumpMap, IN.DistUV.zw));
+			fixed3 finalBump = combineNormalMaps( bump1 , bump2); 
+			fixed3 cubeMap = texCUBE (_Cube, WorldReflectionVector (IN, finalBump)).rgb;
 			
-			o.Albedo = c.rgb * IN.color.rgb;
-		 	o.Normal = bump;
-		 	o.Specular = c.a;
-		 	o.Gloss = _Shininess;
-          	o.Emission = cubeMap * _ReflColor;
-			o.Alpha = c.a * IN.color.a;
+			fixed rim = saturate(dot(normalize(IN.viewDir),finalBump));
+			
+			o.Albedo = _Color.rgb;
+		 	o.Normal = finalBump;
+          	o.Emission = cubeMap * _ReflColor * pow(rim,_RimPower);
+			o.Alpha = _Color.a;
 		}
 		ENDCG
 	} 
