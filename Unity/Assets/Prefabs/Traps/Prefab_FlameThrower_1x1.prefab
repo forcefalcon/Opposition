@@ -74,6 +74,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 418534}
+  - 136: {fileID: 13675246}
   - 114: {fileID: 11470560}
   - 65: {fileID: 6578664}
   m_Layer: 0
@@ -206,7 +207,7 @@ MeshFilter:
   m_Mesh: {fileID: 4300000, guid: 0b5766181ced4954595a844766bd6f00, type: 3}
 --- !u!65 &6578664
 BoxCollider:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118534}
@@ -229,6 +230,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VFX_FlameThrowerPrefab: {fileID: 135178, guid: 5bf7d31246b96ad4b81309ac742d2127,
     type: 2}
+--- !u!136 &13675246
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118534}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: .5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &19817114
 ParticleSystem:
   m_ObjectHideFlags: 1
