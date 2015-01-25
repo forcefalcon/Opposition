@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using System;
 
 public class MazeManager : MonoBehaviour
 {
@@ -20,15 +21,19 @@ public class MazeManager : MonoBehaviour
 	public bool UseOVR;
 	
 	private Dictionary<int, GameObject> _Rooms = new Dictionary<int, GameObject>();
+	public string levelName;
 
 	public void Awake() {
 		Instance = this;
 	}
 		
 	public void Start(){
+		if (String.IsNullOrEmpty(levelName)) { 
+					levelName = "/Data/Sample.maze";
+				}
 		// testing
 		Serialization.MazeInfo mazeInfo = null;
-		using (var reader = new StreamReader(Application.streamingAssetsPath + "/Data/Sample.maze")) {
+		using (var reader = new StreamReader(Application.streamingAssetsPath + levelName)) {
 			string json = reader.ReadToEnd();
 			mazeInfo = JsonConvert.DeserializeObject<Serialization.MazeInfo>(json);
 		}

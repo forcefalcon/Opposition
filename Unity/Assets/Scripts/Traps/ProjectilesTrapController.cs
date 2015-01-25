@@ -8,4 +8,9 @@ public class ProjectilesTrapController : TrapController {
 			return TrapManager.Instance.ProjectilesTrapPrefab;
 		}
 	}
+
+	protected override bool InternalTryActivate()
+	{
+		throw new System.NotImplementedException();
+	}
 }

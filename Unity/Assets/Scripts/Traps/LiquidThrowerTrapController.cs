@@ -8,4 +8,9 @@ public class LiquidThrowerTrapController : TrapController {
 			return TrapManager.Instance.LiquidThrowerTrapPrefab;
 		}
 	}
+
+	protected override bool InternalTryActivate()
+	{
+		throw new System.NotImplementedException();
+	}
 }
