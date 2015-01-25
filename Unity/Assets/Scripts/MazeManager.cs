@@ -33,8 +33,21 @@ public class MazeManager : MonoBehaviour
 		// testing - we would normally do a game setup screen
 		// where users either choose to generate a random map procedurally, 
 		// or enter a predefined seed used by the procedural generation.		
+		LoadMapFromFile(-1);
+	}
+
+	public void LoadMapFromFile(int mapIndex)
+	{
 		var pregeneratedMazes = Directory.GetFiles(Application.streamingAssetsPath + "/Data/", "Level*.maze");
-		var mazeFile = pregeneratedMazes[_Random.Next(pregeneratedMazes.Length)];
+		string mazeFile;
+		if (mapIndex < 0)
+		{
+			mazeFile = pregeneratedMazes[_Random.Next(pregeneratedMazes.Length)];
+		}
+		else
+		{
+			mazeFile = pregeneratedMazes[mapIndex % pregeneratedMazes.Length];
+		}
 		
 		Serialization.MazeInfo mazeInfo = null;
 		using (var reader = new StreamReader(mazeFile)) {
@@ -46,6 +59,7 @@ public class MazeManager : MonoBehaviour
 		} else {
 			Debug.LogError ("No MazeInfo found");
 		}
+		
 	}
 
 	public void CreateMaze(Serialization.MazeInfo mazeInfo) {

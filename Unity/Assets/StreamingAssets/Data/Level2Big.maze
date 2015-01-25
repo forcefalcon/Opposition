@@ -1,6 +1,7 @@
 {
  	"StartingRoomID": 14,
- 	"GoalRoomIDs": [1],
+	"StartingDirection": "West",
+ 	"GlobalTrapCooldown": 1.5,
  	"Rooms": [
  		{
  			"ID": 1,

@@ -34,6 +34,17 @@ public class ApplicationManager : MonoBehaviour
 		{
 			StartCoroutine(RestartIn(1f));
 		}
+		else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift))
+		{
+			if (Input.GetKeyDown(KeyCode.F1))
+			{
+				StartCoroutine(LoadMaze(0));
+			}
+			else if (Input.GetKeyDown(KeyCode.F2))
+			{
+				StartCoroutine(LoadMaze(1));
+			}
+		}
 	}
 
 	public void EndGame(bool playerDied)
@@ -89,7 +100,12 @@ public class ApplicationManager : MonoBehaviour
 	IEnumerator RestartIn(float time)
 	{
 		yield return new WaitForSeconds(time);
-
 		Application.LoadLevel(0);
+	}
+	
+	IEnumerator LoadMaze(int index)
+	{
+		MazeManager.Instance.LoadMapFromFile(index);
+		yield break;
 	}
 }
