@@ -57,7 +57,7 @@ public class FlameThrowerController : MonoBehaviour
 	{
 		if (_currentState == State.Waiting && other.tag == "Player")
 		{
-			Debug.Log("YOU DIED!!!");
+			ApplicationManager.Instance.EndGame(true);
 		}
 	}
 }
