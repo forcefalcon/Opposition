@@ -35,6 +35,7 @@ namespace Serialization
 		public TrapType Type;
 		public TrapPlacement Placement;
 		public Direction Direction;
+		public KeyCode KeyBinding;
 	}
 
 	public class MazeInfo {
