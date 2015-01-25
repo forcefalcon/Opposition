@@ -113,7 +113,7 @@ MonoBehaviour:
     type: 2}
   ProjectilesTrapPrefab: {fileID: 165824, guid: 002f191835c445f458c5fe1dab42783a,
     type: 2}
-  StartingRoomID: 0
+  PlayerPrefab: {fileID: 161376, guid: 3e0d99f788ba1b944bdc619256fd4831, type: 2}
   GoalRoomIDs: 
 --- !u!4 &370170787
 Transform:

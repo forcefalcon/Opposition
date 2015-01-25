@@ -77,11 +77,11 @@ public class MazeManager : MonoBehaviour
 		//}
 		
 		// Spawn character
-		var startingRoom = Rooms[mazeInfo.StartingRoomID];
-		Vector3 startingPos = startingRoom.transform.position;
+		var startingRoomPos = Rooms[mazeInfo.StartingRoomID].transform.position;
 		var player = (GameObject)GameObject.Instantiate(PlayerPrefab);
-		player.transform.Translate(startingPos);
+		player.transform.position = startingRoomPos;
 		player.transform.Rotate(new Vector3(0f, mazeInfo.StartingDirection.GetRotation(), 0f));
+		player.tag = "Player";
 	}
 	
 	private GameObject SelectRoomPrefab(RoomMaterialType materialType)
