@@ -74,6 +74,79 @@ NavMeshSettings:
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
   m_NavMesh: {fileID: 0}
+--- !u!1 &156016155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114580, guid: 497725e85193bf34e8b60e165a979d9a, type: 2}
+  m_PrefabInternal: {fileID: 1481904841}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 156016159}
+  - 33: {fileID: 156016158}
+  - 64: {fileID: 156016157}
+  - 23: {fileID: 156016156}
+  m_Layer: 0
+  m_Name: Prefab_GroundFog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &156016156
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2314580, guid: 497725e85193bf34e8b60e165a979d9a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1481904841}
+  m_GameObject: {fileID: 156016155}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: d7d475e82ff2704458990a1ccf4769e8, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!64 &156016157
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6414580, guid: 497725e85193bf34e8b60e165a979d9a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1481904841}
+  m_GameObject: {fileID: 156016155}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &156016158
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 3314580, guid: 497725e85193bf34e8b60e165a979d9a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1481904841}
+  m_GameObject: {fileID: 156016155}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &156016159
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 414580, guid: 497725e85193bf34e8b60e165a979d9a, type: 2}
+  m_PrefabInternal: {fileID: 1481904841}
+  m_GameObject: {fileID: 156016155}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: .349999994, z: 0}
+  m_LocalScale: {x: 20, y: 1, z: 20}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
 --- !u!1001 &202889375
 Prefab:
   m_ObjectHideFlags: 0
@@ -152,13 +225,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MetalRoomPrefab: {fileID: 106676, guid: 535b44fb6ddb526449728633bc575ecf, type: 2}
   WoodRoomPrefab: {fileID: 106676, guid: 64766c48f015c1546961a4d9625e9346, type: 2}
-  ConcreteRoomPrefab: {fileID: 106676, guid: 535b44fb6ddb526449728633bc575ecf, type: 2}
-  WaterRoomPrefab: {fileID: 106676, guid: 535b44fb6ddb526449728633bc575ecf, type: 2}
-  DirtRoomPrefab: {fileID: 106676, guid: 535b44fb6ddb526449728633bc575ecf, type: 2}
+  ConcreteRoomPrefab: {fileID: 121312, guid: b96f148bf2d659f4696e1c3be513d2d8, type: 2}
+  WaterRoomPrefab: {fileID: 185038, guid: c09f9ad5da99af6488befb72973b5605, type: 2}
+  DirtRoomPrefab: {fileID: 121312, guid: 127794223a4a51b4290e6b81e40c5422, type: 2}
   TrapGroupPrefab: {fileID: 159434, guid: a8165a582a544e945b2bc24c95c55d88, type: 2}
   CollectiblePrefab: {fileID: 0}
   PlayerPrefab: {fileID: 161376, guid: 3e0d99f788ba1b944bdc619256fd4831, type: 2}
   UseOVR: 0
+  levelName: 
 --- !u!4 &298434210
 Transform:
   m_ObjectHideFlags: 0
@@ -362,6 +436,58 @@ Prefab:
   m_RootGameObject: {fileID: 1767662253}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1001 &1481904841
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 414580, guid: 497725e85193bf34e8b60e165a979d9a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414580, guid: 497725e85193bf34e8b60e165a979d9a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .349999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 414580, guid: 497725e85193bf34e8b60e165a979d9a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414580, guid: 497725e85193bf34e8b60e165a979d9a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414580, guid: 497725e85193bf34e8b60e165a979d9a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414580, guid: 497725e85193bf34e8b60e165a979d9a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414580, guid: 497725e85193bf34e8b60e165a979d9a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 414580, guid: 497725e85193bf34e8b60e165a979d9a, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 414580, guid: 497725e85193bf34e8b60e165a979d9a, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 414580, guid: 497725e85193bf34e8b60e165a979d9a, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 20
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 497725e85193bf34e8b60e165a979d9a, type: 2}
+  m_RootGameObject: {fileID: 156016155}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &1767662253
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,6 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede7718f6738e5b4c912ab2770616fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GlobalTrapCooldown: 5
   SpikesTrapPrefab: {fileID: 180216, guid: 527daa7fe029aa94faf4a9f9976e80fb, type: 2}
   FlameThrowerTrapPrefab: {fileID: 118534, guid: f58c0a0668adfbf47a6e576ce2dbb7a7,
     type: 2}
