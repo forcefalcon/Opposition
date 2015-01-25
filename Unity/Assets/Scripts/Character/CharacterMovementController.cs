@@ -41,8 +41,12 @@ public class CharacterMovementController : MonoBehaviour
 
 	private float SimulationRate = 60f;
 
+	public bool FreezeMovement { get; set; }
+
 	void Awake()
 	{
+		FreezeMovement = false;
+
 		Controller = gameObject.GetComponent<CharacterController>();
 
 		if (Controller == null)
@@ -51,6 +55,9 @@ public class CharacterMovementController : MonoBehaviour
 
 	void Update() 
 	{
+		if (FreezeMovement)
+			return;
+
 		UpdateMovement();
 
 		Vector3 moveDirection = Vector3.zero;
