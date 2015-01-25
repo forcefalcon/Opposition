@@ -19,17 +19,25 @@ public class RoomController : MonoBehaviour
 			{
 				CreateDoor(direction);
 			}
-
-			// TODO Add corridors in open directions ?
 		}
 	}
 
 	private void CreateDoor(Direction direction)
 	{
-		var wallTransform = gameObject.transform.Find("Doors/" + direction.ToString () + "Door");
-		if (wallTransform != null)
+		SetChildActive(direction.ToString () + "Door", false);
+		SetChildActive(direction.ToString () + "DoorFrame", true);
+	}
+	
+	private void SetChildActive(string childName, bool active)
+	{
+		var childTransform = gameObject.transform.Find(childName);
+		if (childTransform != null)
 		{
-			wallTransform.gameObject.SetActive(false);
+			childTransform.gameObject.SetActive(active);
 		}
-	}	
+		else
+		{
+			Debug.LogError("Couldn't find child transform named " + childName);
+		}
+	}
 }
