@@ -1,6 +1,6 @@
 {
  	"StartingRoomID": 1,
- 	"GoalRoomIDs": [2, 5, 6, 7],
+ 	"GlobalTrapCooldown": 1.5,
  	"Rooms": [
  		{
  			"ID": 1,

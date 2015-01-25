@@ -51,5 +51,6 @@ namespace Serialization
 		public List<RoomInfo> Rooms;
 		public List<TrapInfo> Traps;
 		public List<CollectibleInfo> Collectibles;
+		public float GlobalTrapCooldown;
 	}
 }

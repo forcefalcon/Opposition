@@ -52,6 +52,8 @@ public class MazeManager : MonoBehaviour
 			return;
 		}
 		
+		TrapManager.Instance.GlobalTrapCooldown = mazeInfo.GlobalTrapCooldown;
+		
 		// Spawn rooms
 		foreach (Serialization.RoomInfo roomInfo in mazeInfo.Rooms) {
 			var roomPrefab = SelectRoomPrefab(roomInfo.FloorMaterial);
@@ -182,6 +184,11 @@ public class MazeManager : MonoBehaviour
 		}
 		
 		List<string> errors = new List<string>();
+		
+		if (mazeInfo.GlobalTrapCooldown < 0f)
+		{
+			errors.Add ("GlobalTrapCooldown cannot be negative.");
+		}
 		
 		// Ensure no two rooms share the same ID
 		var roomIDs = new HashSet<int>();

@@ -5,7 +5,7 @@ public class TrapManager : MonoBehaviour
 {
 	public static TrapManager Instance { get; private set; }
 	
-	private const float GlobalTrapCooldown = 5f;
+	public float GlobalTrapCooldown = 5f;
 
 	public GameObject SpikesTrapPrefab;
 	public GameObject FlameThrowerTrapPrefab;
