@@ -10,8 +10,6 @@ public class ApplicationManager : MonoBehaviour
 	public Texture2D DeathTexture;
 	public Texture2D SuccessTexture;
 
-	public float OverlayRate = 2.0f;
-
 	private ScreenOverlay[] _overlays;
 
 	void Awake()
@@ -59,6 +57,8 @@ public class ApplicationManager : MonoBehaviour
 		CharacterMovementController move = player.GetComponent<CharacterMovementController>();
 		move.FreezeMovement = true;
 
+		float waitTime = 0.0f;
+
 		_overlays = player.GetComponentsInChildren<ScreenOverlay>();
 		if (playerDied)
 		{
@@ -67,6 +67,8 @@ public class ApplicationManager : MonoBehaviour
 			{
 				overlay.texture = DeathTexture;
 			}
+
+			waitTime = 3.0f;
 		}
 		else
 		{
@@ -75,20 +77,22 @@ public class ApplicationManager : MonoBehaviour
 			{
 				overlay.texture = SuccessTexture;
 			}
+
+			waitTime = 6.0f;
 		}
 
-		StartCoroutine(AnimateOverlay());
+		StartCoroutine(AnimateOverlay(waitTime/2));
 
 		// Reload Level
-		StartCoroutine(RestartIn(3.0f));
+		StartCoroutine(RestartIn(waitTime));
 	}
 
-	IEnumerator AnimateOverlay()
+	IEnumerator AnimateOverlay(float OverlayTime)
 	{
 		float intensity = 0.0f;
 		while (intensity < 1.0f)
 		{
-			intensity += Time.deltaTime * OverlayRate;
+			intensity += Time.deltaTime / OverlayTime;
 
 			foreach (var overlay in _overlays)
 			{

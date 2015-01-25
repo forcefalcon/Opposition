@@ -680,5 +680,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeathTexture: {fileID: 2800000, guid: 284ff50b8372abb46824da9c94d7477a, type: 3}
-  SuccessTexture: {fileID: 2800000, guid: d678ce247bfec3d44b0bff67ad9bdbd8, type: 3}
-  OverlayRate: 1
+  SuccessTexture: {fileID: 2800000, guid: 38b694bcc04437a40bdfd1404b1a93f7, type: 3}
