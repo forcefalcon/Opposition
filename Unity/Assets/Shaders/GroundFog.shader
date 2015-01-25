@@ -12,7 +12,7 @@ Properties {
 	SubShader {
 		Tags { "Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent" }
 		Blend SrcAlpha OneMinusSrcAlpha
-		ColorMask RGB
+		//ColorMask RGB
 		Cull Off Lighting Off ZWrite Off Fog { Color (1,1,1,1) }
 	
 		Pass {
