@@ -1,59 +1,127 @@
 {
  	"StartingRoomID": 1,
- 	"GoalRoomIDs": [5, 2, 3],
+ 	"GoalRoomIDs": [2, 5, 6, 7],
  	"Rooms": [
  		{
  			"ID": 1,
- 			"Position": { "X": 0, "Y": 0},
- 			"FloorMaterial": "Metal",
- 			"Connections": ["East"],
+ 			"Position": { "X": 0, "Y": 2},
+ 			"FloorMaterial": "Wood",
+ 			"Connections": ["East"]
  		},
  		{
  			"ID": 2,
- 			"Position": { "X": 1, "Y": 0},
+ 			"Position": { "X": 1, "Y": 2},
  			"FloorMaterial": "Metal",
- 			"Connections": ["West", "East", "South"]
+ 			"Connections": ["West", "South"]
  		},
  		{
  			"ID": 3,
- 			"Position": { "X": 2, "Y": 0},
- 			"FloorMaterial": "Metal",
- 			"Connections": ["West", "North"]
+ 			"Position": { "X": 1, "Y": 1},
+ 			"FloorMaterial": "Dirt",
+ 			"Connections": ["North", "East", "South"]
  		},
  		{
  			"ID": 4,
  			"Position": { "X": 2, "Y": 1},
- 			"FloorMaterial": "Metal",
- 			"Connections": ["South"]
+ 			"FloorMaterial": "Wood",
+ 			"Connections": ["West", "South"]
  		},
  		{
  			"ID": 5,
- 			"Position": { "X": 1, "Y": -1},
- 			"FloorMaterial": "Metal",
+ 			"Position": { "X": 0, "Y": 0},
+ 			"FloorMaterial": "Dirt",
+ 			"Connections": ["East"]
+ 		},
+		{
+ 			"ID": 6,
+ 			"Position": { "X": 1, "Y": 0},
+ 			"FloorMaterial": "Water",
+ 			"Connections": ["North", "West"]
+ 		},
+		{
+			"ID": 7,
+			"Position": { "X": 2, "Y": 0},
+			"FloorMaterial": "Concrete",
  			"Connections": ["North"]
- 		}
- 	],
+		}
+	],
 	"Traps": [
 		{
 			"ID": 1,
-			"RoomID": 4,
+			"RoomID": 2,
 			"Placement": "NorthEast",
-			"Type": "Spikes",
-			"KeyBinding": "Q"
+			"Type": "FlameThrower",
+			"KeyBinding": "E"
 		},
 		{
 			"ID": 2,
-			"RoomID": 1,
-			"Placement": "NorthEast",
+			"RoomID": 2,
+			"Placement": "SouthEast",
 			"Type": "Spikes",
-			"KeyBinding": "R"
+			"KeyBinding": "D"
 		},
 		{
 			"ID": 3,
-			"RoomID": 1,
+			"RoomID": 3,
 			"Placement": "NorthWest",
-			"Type": "Spikes",
+			"Type": "LiquidThrower",
 			"KeyBinding": "S"
+		},
+		{
+			"ID": 4,
+			"RoomID": 3,
+			"Placement": "SouthEast",
+			"Type": "FlameThrower",
+			"KeyBinding": "C"
+		},
+		{
+			"ID": 5,
+			"RoomID": 4,
+			"Placement": "NorthWest",
+			"Type": "LiquidThrower",
+			"KeyBinding": "R"
+		},
+		{
+			"ID": 6,
+			"RoomID": 4,
+			"Placement": "SouthWest",
+			"Type": "Spikes",
+			"KeyBinding": "F"
+		},
+		{
+			"ID": 7,
+			"RoomID": 5,
+			"Placement": "NorthEast",
+			"Type": "FlameThrower",
+			"KeyBinding": "A"
+		},
+		{
+			"ID": 8,
+			"RoomID": 5,
+			"Placement": "SouthEast",
+			"Type": "LiquidThrower",
+			"KeyBinding": "Z"
+		},
+		{
+			"ID": 9,
+			"RoomID": 6,
+			"Placement": "SouthWest",
+			"Type": "Spikes",
+			"KeyBinding": "X"
+		},
+		{
+			"ID": 10,
+			"RoomID": 7,
+			"Placement": "NorthWest",
+			"Type": "Projectiles",
+			"KeyBinding": "V"
+		}
+ 	],
+	"Collectibles": [
+		{
+			"ID": 1,
+			"RoomID": 3,
+			"Placement": "SouthWest"
 		}
 	]
 }

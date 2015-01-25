@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using System;
 
 public class MazeManager : MonoBehaviour
 {
@@ -14,21 +15,25 @@ public class MazeManager : MonoBehaviour
 	public GameObject DirtRoomPrefab;
 	
 	public GameObject TrapGroupPrefab; // Enables multiple instances of the same trap prefab controlled by the same controller
+	public GameObject CollectiblePrefab; 
 	
 	public GameObject PlayerPrefab;
 	public bool UseOVR;
-	public List<int> GoalRoomIDs;
 	
-	private Dictionary<int, GameObject> Rooms = new Dictionary<int, GameObject>();
+	private Dictionary<int, GameObject> _Rooms = new Dictionary<int, GameObject>();
+	public string levelName;
 
 	public void Awake() {
 		Instance = this;
 	}
 		
 	public void Start(){
+		if (String.IsNullOrEmpty(levelName)) { 
+					levelName = "/Data/Sample.maze";
+				}
 		// testing
 		Serialization.MazeInfo mazeInfo = null;
-		using (var reader = new StreamReader(Application.streamingAssetsPath + "/Data/Sample.maze")) {
+		using (var reader = new StreamReader(Application.streamingAssetsPath + levelName)) {
 			string json = reader.ReadToEnd();
 			mazeInfo = JsonConvert.DeserializeObject<Serialization.MazeInfo>(json);
 		}
@@ -41,14 +46,11 @@ public class MazeManager : MonoBehaviour
 
 	public void CreateMaze(Serialization.MazeInfo mazeInfo) {
 		Clear ();
-		GoalRoomIDs = null;
 		
 		if (!ValidateMaze(mazeInfo))
 		{
 			return;
 		}
-		
-		GoalRoomIDs = mazeInfo.GoalRoomIDs;
 		
 		// Spawn rooms
 		foreach (Serialization.RoomInfo roomInfo in mazeInfo.Rooms) {
@@ -62,7 +64,7 @@ public class MazeManager : MonoBehaviour
 				Quaternion.identity);
 			
 			roomGO.transform.parent = this.transform;
-			Rooms[roomInfo.ID] = roomGO;
+			_Rooms[roomInfo.ID] = roomGO;
 			
 			var room = roomGO.GetComponent<RoomController>();
 			room.Connections = roomInfo.Connections;
@@ -70,26 +72,10 @@ public class MazeManager : MonoBehaviour
 		
 		// spawn traps
 		foreach (Serialization.TrapInfo trapInfo in mazeInfo.Traps) {
-			var trapGroupGO = (GameObject)GameObject.Instantiate(
-				TrapGroupPrefab, 
-				new Vector3(
-					0f /* TODO offset based on Placement */,
-					0f,
-					0f /* TODO offset based on Placement */),
-				Quaternion.identity);
-			
-			var trapRoomGO = Rooms[trapInfo.RoomID];
-			var trapsChild = trapRoomGO.transform.Find("Traps");
-			if (trapsChild == null)
-			{
-				var trapsChildGO = new GameObject();
-				trapsChild = trapsChildGO.transform;
-				trapsChild.name = "Traps";
-				trapsChild.parent = trapRoomGO.transform;
-			}
-			trapGroupGO.transform.parent = trapsChild;
-			trapGroupGO.name = trapInfo.Type.ToString();
-			
+			var trapRoomGO = _Rooms[trapInfo.RoomID];
+			var trapGroupGO = (GameObject)GameObject.Instantiate(TrapGroupPrefab);
+			trapGroupGO.transform.parent = GetOrCreateChildGroup(trapRoomGO.transform, "Traps");
+			trapGroupGO.name = trapInfo.Type.ToString() + trapInfo.Placement.ToString();
 			trapGroupGO.AddComponent(SelectTrapController(trapInfo.Type));
 			
 			var trapController = trapGroupGO.GetComponent<TrapController>();
@@ -101,14 +87,44 @@ public class MazeManager : MonoBehaviour
 			}
 		}
 		
+		// Spawn collectibles
+		foreach (Serialization.CollectibleInfo collectibleInfo in mazeInfo.Collectibles) {
+			var collectibleRoomGO = _Rooms[collectibleInfo.RoomID];
+			var collectibleGO = (GameObject)GameObject.CreatePrimitive(PrimitiveType.Cube);//(GameObject)GameObject.Instantiate(CollectiblePrefab);
+			collectibleGO.transform.parent = collectibleRoomGO.transform;
+			collectibleGO.name = "Collectible";
+			
+			// Temporary - the CollectiblePrefab will have a CollectibleController
+			var collectibleController = collectibleGO.AddComponent("CollectibleController") as CollectibleController;
+			// var collectibleController = collectibleGO.GetComponent<CollectibleController>();
+			if (collectibleController != null)
+			{
+				collectibleController.CollectibleID = collectibleInfo.ID;
+				collectibleController.Placement = collectibleInfo.Placement;
+			}
+		}
+			
 		// Spawn character
-		var startingRoomPos = Rooms[mazeInfo.StartingRoomID].transform.position;
+		var startingRoomPos = _Rooms[mazeInfo.StartingRoomID].transform.position;
 		var player = (GameObject)GameObject.Instantiate(PlayerPrefab);
 		player.transform.position = startingRoomPos;
 		player.transform.Rotate(new Vector3(0f, mazeInfo.StartingDirection.GetRotation(), 0f));
 		player.name = "MazePlayerController";
 
 		player.GetComponent<CameraPicker>().Initialize(UseOVR);
+	}
+	
+	private static Transform GetOrCreateChildGroup(Transform parent, string childName)
+	{
+		var child = parent.Find(childName);
+		if (child == null)
+		{
+			var childGO = new GameObject();
+			child = childGO.transform;
+			child.name = childName;
+			child.parent = parent;
+		}
+		return child;
 	}
 	
 	private GameObject SelectRoomPrefab(RoomMaterialType materialType)
@@ -138,10 +154,10 @@ public class MazeManager : MonoBehaviour
 			return typeof(SpikesTrapController).Name;
 		case TrapType.FlameThrower:
 			return typeof(FlameThrowerTrapController).Name;
-//		case TrapType.LiquidThrower:
-//			return typeof(LiquidThrowerTrapController).Name;
-//		case TrapType.Projectiles:
-//			return typeof(ProjectilesTrapController).Name;
+		case TrapType.LiquidThrower:
+			return typeof(LiquidThrowerTrapController).Name;
+		case TrapType.Projectiles:
+			return typeof(ProjectilesTrapController).Name;
 		}
 		Debug.LogWarning("Unknown trap type " + trapType + ", defaulting to Spikes");
 		return "SpikeTrapController";
@@ -153,10 +169,21 @@ public class MazeManager : MonoBehaviour
 			Debug.LogError ("Cannot load maze - no rooms defined");
 			return false;
 		}
+		if (mazeInfo.Traps == null || mazeInfo.Traps.Count == 0)
+		{
+			Debug.LogError ("Cannot load maze - no traps defined");
+			return false;
+		}
+		if (mazeInfo.Collectibles == null || mazeInfo.Collectibles.Count == 0)
+		{
+			Debug.LogError ("Cannot load maze - no collectibles defined");
+			return false;
+		}
+		
 		List<string> errors = new List<string>();
 		
-		var roomIDs = new HashSet<int>();
 		// Ensure no two rooms share the same ID
+		var roomIDs = new HashSet<int>();
 		// Ensure no two rooms occupy the same space
 		var roomsByLocation = new Dictionary<Serialization.IntVector2, Serialization.RoomInfo>();
 		foreach (var room in mazeInfo.Rooms)
@@ -220,10 +247,12 @@ public class MazeManager : MonoBehaviour
 			}
 		}
 		
+		// Ensure no two traps share the same ID
 		var trapIDs = new HashSet<int>();
+		// Ensure no two traps share the same key binding
 		var trapsByKeyBinding = new Dictionary<KeyCode, int>();
+		// Ensure traps are defined in existing rooms and don't overlap
 		var trapPlacements = new HashSet<int>();
-		// Ensure traps are defined in existing rooms
 		foreach (var trap in mazeInfo.Traps)
 		{
 			if (trapIDs.Contains (trap.ID))
@@ -261,6 +290,42 @@ public class MazeManager : MonoBehaviour
 			}
 		}
 		
+		// Ensure no two collectibles share the same ID
+		var collectibleIDs = new HashSet<int>();
+		// Ensure collectibles are defined in existing rooms and don't overlap
+		var collectiblePlacements = new HashSet<int>();
+		foreach (var collectible in mazeInfo.Collectibles)
+		{
+			if (collectibleIDs.Contains (collectible.ID))
+			{
+				errors.Add ("Duplicate Collectible ID " + collectible.ID);
+			}
+			else
+			{
+				collectibleIDs.Add (collectible.ID);
+			}
+			
+			if (!roomIDs.Contains (collectible.RoomID))
+			{
+				errors.Add ("Collectible with ID " + collectible.ID + " references non-existent Room ID " + collectible.RoomID);
+			}
+			
+			// combine the room ID and placement enum in a single int value for easily spotting dupes
+			var placement = (collectible.RoomID << 4) | (((int)collectible.Placement) & 0xF); 
+			if (collectiblePlacements.Contains(placement))
+			{
+				errors.Add ("The placement of Collectible with ID " + collectible.ID + " is invalid because Room with ID " + collectible.RoomID + " already contains a Collectible in its " + collectible.Placement.ToString() + " section.");
+			}
+			else if (trapPlacements.Contains(placement))
+			{
+				errors.Add ("The placement of Collectible with ID " + collectible.ID + " is invalid because Room with ID " + collectible.RoomID + " already contains a Trap in its " + collectible.Placement.ToString() + " section.");
+			}
+			else
+			{
+				trapPlacements.Add (placement);
+			}
+		}
+		
 		if (errors.Count > 0)
 		{
 			foreach (var error in errors)
@@ -278,10 +343,11 @@ public class MazeManager : MonoBehaviour
 	}
 
 	private void Clear() {
-		foreach (var room in Rooms.Values) {
+		foreach (var room in _Rooms.Values) {
 			GameObject.Destroy(room.gameObject);
 		}
-		Rooms.Clear ();
+		_Rooms.Clear ();
 		TrapManager.Instance.Clear();
+		CollectibleManager.Instance.Clear();
 	}
 }
