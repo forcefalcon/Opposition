@@ -10,7 +10,7 @@ public class ApplicationManager : MonoBehaviour
 	public Texture2D DeathTexture;
 	public Texture2D SuccessTexture;
 
-	public float OverlayRate = 1.0f;
+	public float OverlayRate = 2.0f;
 
 	private ScreenOverlay[] _overlays;
 
@@ -63,7 +63,7 @@ public class ApplicationManager : MonoBehaviour
 		StartCoroutine(AnimateOverlay());
 
 		// Reload Level
-		StartCoroutine(RestartIn(2.0f));
+		StartCoroutine(RestartIn(3.0f));
 	}
 
 	IEnumerator AnimateOverlay()

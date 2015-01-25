@@ -175,6 +175,10 @@
 					<ShortName>SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Projectiles_01.wav</ShortName>
 					<Path>SFX\SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Projectiles_01_DDC98EF4.wem</Path>
 				</File>
+				<File Id="650451034" Language="SFX">
+					<ShortName>SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Spikes_Return.wav</ShortName>
+					<Path>SFX\SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Spikes_Return_DDC98EF4.wem</Path>
+				</File>
 				<File Id="676817148" Language="SFX">
 					<ShortName>SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Spikes_03.wav</ShortName>
 					<Path>SFX\SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Spikes_03_DDC98EF4.wem</Path>
@@ -226,10 +230,6 @@
 				<File Id="905801372" Language="SFX">
 					<ShortName>SFX\FeedBack\Collectibles\SFX_Feedback_Collectible_Shimmer.wav</ShortName>
 					<Path>SFX\SFX\FeedBack\Collectibles\SFX_Feedback_Collectible_Shimmer_74E2535B.wem</Path>
-				</File>
-				<File Id="919829903" Language="SFX">
-					<ShortName>SFX\FeedBack\SFX_Feedback_Death.wav</ShortName>
-					<Path>SFX\SFX\FeedBack\SFX_Feedback_Death_DDC98EF4.wem</Path>
 				</File>
 				<File Id="941094187" Language="SFX">
 					<ShortName>SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Liquids_01.wav</ShortName>
