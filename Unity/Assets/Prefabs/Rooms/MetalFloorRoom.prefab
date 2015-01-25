@@ -802,6 +802,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 406676}
   - 64: {fileID: 6406582}
+  - 114: {fileID: 11437786}
   m_Layer: 0
   m_Name: MetalFloorRoom
   m_TagString: Untagged
@@ -890,7 +891,7 @@ GameObject:
   - 23: {fileID: 2306618}
   m_Layer: 8
   m_Name: Floor
-  m_TagString: Metal
+  m_TagString: Floortype_Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2697,6 +2698,18 @@ Light:
   m_ShadowAngle: 0
   m_IndirectIntensity: 1
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &11437786
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e60d11d3fefca804b8ae888e030eef70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Connections: 
 --- !u!198 &19806582
 ParticleSystem:
   m_ObjectHideFlags: 1
