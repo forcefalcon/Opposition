@@ -31,9 +31,6 @@ public class SoundOcclusion : MonoBehaviour
 
 	void UpdateOcclusion()
 	{
-		if (this.gameObject.GetComponent<FlameThrowerController>() == null)
-			return;
-
 		if (_playerTransform == null)
 		{
 			GameObject player = GameObject.FindGameObjectWithTag("Player");

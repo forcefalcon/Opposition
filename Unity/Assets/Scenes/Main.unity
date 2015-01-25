@@ -168,7 +168,7 @@ MonoBehaviour:
   TrapGroupPrefab: {fileID: 159434, guid: a8165a582a544e945b2bc24c95c55d88, type: 2}
   CollectiblePrefab: {fileID: 153886, guid: 48f9f9e3e8d458741897e96f68806e0d, type: 2}
   PlayerPrefab: {fileID: 161376, guid: 3e0d99f788ba1b944bdc619256fd4831, type: 2}
-  UseOVR: 0
+  UseOVR: 1
   levelName: 
 --- !u!4 &298434210
 Transform:
@@ -371,7 +371,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11409058, guid: 241fa7736118a1d4cb86d4d3f849dfa7, type: 2}
       propertyPath: UseOVR
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 241fa7736118a1d4cb86d4d3f849dfa7, type: 2}
