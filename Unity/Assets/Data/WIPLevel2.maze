@@ -258,6 +258,13 @@
 			"Placement": "NorthWest",
 			"Type": "FlameThrower",
 			"KeyBinding": "N"
+				}
+ 	],
+	"Collectibles": [
+		{
+			"ID": 1,
+			"RoomID": 1,
+			"Placement": "SouthWest"
 		}
  	]
 }
