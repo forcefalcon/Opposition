@@ -18,15 +18,15 @@ public class MazeManager : MonoBehaviour
 	public GameObject LiquidThrowerTrapPrefab;
 	public GameObject ProjectilesTrapPrefab;
 		
-	public int StartingRoomID;
+	public GameObject PlayerPrefab;
 	public List<int> GoalRoomIDs;
 	
-	private Dictionary<int, Room> Rooms { get; set; }
-	private Dictionary<int, Trap> Traps { get; set; }
+	private Dictionary<int, RoomController> Rooms { get; set; }
+//	private Dictionary<int, Trap> Traps { get; set; }
 
 	public void Awake() {
 		Instance = this;
-		Rooms = new Dictionary<int, Room> ();
+		Rooms = new Dictionary<int, RoomController> ();
 	}
 		
 	public void Start(){
@@ -46,7 +46,6 @@ public class MazeManager : MonoBehaviour
 
 	public void CreateMaze(Serialization.MazeInfo mazeInfo) {
 		ClearRooms ();
-		StartingRoomID = 0;
 		GoalRoomIDs = null;
 		
 		if (!ValidateMaze(mazeInfo))
@@ -54,7 +53,6 @@ public class MazeManager : MonoBehaviour
 			return;
 		}
 		
-		StartingRoomID = mazeInfo.StartingRoomID;
 		GoalRoomIDs = mazeInfo.GoalRoomIDs;
 			
 		foreach (Serialization.RoomInfo roomInfo in mazeInfo.Rooms) {
@@ -67,16 +65,23 @@ public class MazeManager : MonoBehaviour
 					RoomCoordToVectorComponent(roomInfo.Position.Y)),
 				Quaternion.identity);
 			
-			var room = instance.GetComponent<Room>();
+			var room = instance.GetComponent<RoomController>();
 			room.Connections = roomInfo.Connections;
 			
 			instance.transform.parent = this.transform;	
 			Rooms[roomInfo.ID] = room;
 		}
 		
-		foreach (Serialization.TrapInfo trapInfo in mazeInfo.Traps) {
-			GameObject trapPrefab = SelectTrapPrefab(trapInfo.Type);
-		}
+		//foreach (Serialization.TrapInfo trapInfo in mazeInfo.Traps) {
+		//	GameObject trapPrefab = SelectTrapPrefab(trapInfo.Type);
+		//}
+		
+		// Spawn character
+		var startingRoomPos = Rooms[mazeInfo.StartingRoomID].transform.position;
+		var player = (GameObject)GameObject.Instantiate(PlayerPrefab);
+		player.transform.position = startingRoomPos;
+		player.transform.Rotate(new Vector3(0f, mazeInfo.StartingDirection.GetRotation(), 0f));
+		player.tag = "Player";
 	}
 	
 	private GameObject SelectRoomPrefab(RoomMaterialType materialType)

@@ -1,4 +1,4 @@
-﻿public enum TrapPlacement{
+public enum Placement{
 	NorthWest,
 	NorthEast,
 	SouthWest,
