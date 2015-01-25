@@ -22,7 +22,10 @@ public abstract class TrapController : MonoBehaviour {
 		var groupTransform = transform;
 		groupTransform.localPosition = Placement.ToPosition();
 		var trapTileCount = (int)(RoomConstants.RoomSize / 2);
-		var childLocalOffset = trapTileCount / 2f; // trap tiles are 1 meter squares
+		// determine the negative offset to apply to each tile for the result to be centered on
+		// the trap group;
+		// trap tiles are 1 meter squares, so -0.5 because the position of the tiles is on their center
+		var childLocalOffset = trapTileCount / 2f - 0.5f; 
 		for (int i = 0; i < trapTileCount; i++)
 		{
 			for (int j = 0; j < trapTileCount; j++)
