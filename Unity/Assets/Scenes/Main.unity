@@ -200,6 +200,7 @@ GameObject:
   - 4: {fileID: 1873044753}
   - 114: {fileID: 1873044752}
   - 114: {fileID: 1873044751}
+  - 114: {fileID: 1873044754}
   m_Layer: 0
   m_Name: WwiseGlobal
   m_TagString: Untagged
@@ -247,3 +248,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &1873044754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1873044750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ca172a4c55f86429983a137bc8a301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  valueGuid: 75554f8544a5fe448fbe4497639eef81
+  bankName: AllSounds
+  loadAsynchronous: 0
+  unloadTriggerList: 958ca0ea
