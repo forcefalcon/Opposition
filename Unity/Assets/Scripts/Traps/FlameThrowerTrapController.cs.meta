@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: a36601110465f8b4c8939c26ef07d8e3
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - FlameThrowerPrefab: {fileID: 118534, guid: f58c0a0668adfbf47a6e576ce2dbb7a7, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
