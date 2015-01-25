@@ -19,6 +19,7 @@ public class MazeManager : MonoBehaviour
 	public GameObject ProjectilesTrapPrefab;
 		
 	public GameObject PlayerPrefab;
+	public bool UseOVR = false;
 	public List<int> GoalRoomIDs;
 	
 	private Dictionary<int, RoomController> Rooms { get; set; }
@@ -82,6 +83,8 @@ public class MazeManager : MonoBehaviour
 		player.transform.position = startingRoomPos;
 		player.transform.Rotate(new Vector3(0f, mazeInfo.StartingDirection.GetRotation(), 0f));
 		player.tag = "Player";
+
+		player.GetComponent<CameraPicker>().Initialize(UseOVR);
 	}
 	
 	private GameObject SelectRoomPrefab(RoomMaterialType materialType)
