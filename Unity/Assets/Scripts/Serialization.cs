@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 
 namespace Serialization
@@ -33,13 +33,14 @@ namespace Serialization
 		public int ID;
 		public int RoomID;
 		public TrapType Type;
-		public TrapPlacement Placement;
+		public Placement Placement;
 		public Direction Direction;
 		public KeyCode KeyBinding;
 	}
 
 	public class MazeInfo {
 		public int StartingRoomID;
+		public Direction StartingDirection;
 		public List<int> GoalRoomIDs;
 		public List<RoomInfo> Rooms;
 		public List<TrapInfo> Traps;

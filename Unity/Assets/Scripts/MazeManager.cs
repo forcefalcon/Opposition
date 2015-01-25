@@ -13,27 +13,22 @@ public class MazeManager : MonoBehaviour
 	public GameObject WaterRoomPrefab;
 	public GameObject DirtRoomPrefab;
 	
-	public GameObject SpikesTrapPrefab;
-	public GameObject FlameThrowerTrapPrefab;
-	public GameObject LiquidThrowerTrapPrefab;
-	public GameObject ProjectilesTrapPrefab;
-		
-	public int StartingRoomID;
+	public GameObject TrapGroupPrefab; // Enables multiple instances of the same trap prefab controlled by the same controller
+	
+	public GameObject PlayerPrefab;
+	public bool UseOVR;
 	public List<int> GoalRoomIDs;
 	
-	private Dictionary<int, Room> Rooms { get; set; }
-	private Dictionary<int, Trap> Traps { get; set; }
+	private Dictionary<int, GameObject> Rooms = new Dictionary<int, GameObject>();
 
 	public void Awake() {
 		Instance = this;
-		Rooms = new Dictionary<int, Room> ();
 	}
 		
 	public void Start(){
-
 		// testing
 		Serialization.MazeInfo mazeInfo = null;
-		using (var reader = new StreamReader(@"Assets\Data\Sample.maze")) {
+		using (var reader = new StreamReader(Application.streamingAssetsPath + "/Data/Sample.maze")) {
 			string json = reader.ReadToEnd();
 			mazeInfo = JsonConvert.DeserializeObject<Serialization.MazeInfo>(json);
 		}
@@ -45,8 +40,7 @@ public class MazeManager : MonoBehaviour
 	}
 
 	public void CreateMaze(Serialization.MazeInfo mazeInfo) {
-		ClearRooms ();
-		StartingRoomID = 0;
+		Clear ();
 		GoalRoomIDs = null;
 		
 		if (!ValidateMaze(mazeInfo))
@@ -54,12 +48,12 @@ public class MazeManager : MonoBehaviour
 			return;
 		}
 		
-		StartingRoomID = mazeInfo.StartingRoomID;
 		GoalRoomIDs = mazeInfo.GoalRoomIDs;
-			
+		
+		// Spawn rooms
 		foreach (Serialization.RoomInfo roomInfo in mazeInfo.Rooms) {
 			var roomPrefab = SelectRoomPrefab(roomInfo.FloorMaterial);
-			var instance = (GameObject)GameObject.Instantiate(
+			var roomGO = (GameObject)GameObject.Instantiate(
 				roomPrefab, 
 				new Vector3(
 					RoomCoordToVectorComponent(roomInfo.Position.X),
@@ -67,16 +61,54 @@ public class MazeManager : MonoBehaviour
 					RoomCoordToVectorComponent(roomInfo.Position.Y)),
 				Quaternion.identity);
 			
-			var room = instance.GetComponent<Room>();
-			room.Connections = roomInfo.Connections;
+			roomGO.transform.parent = this.transform;
+			Rooms[roomInfo.ID] = roomGO;
 			
-			instance.transform.parent = this.transform;	
-			Rooms[roomInfo.ID] = room;
+			var room = roomGO.GetComponent<RoomController>();
+			room.Connections = roomInfo.Connections;
 		}
 		
+		// spawn traps
 		foreach (Serialization.TrapInfo trapInfo in mazeInfo.Traps) {
-			GameObject trapPrefab = SelectTrapPrefab(trapInfo.Type);
+			var trapGroupGO = (GameObject)GameObject.Instantiate(
+				TrapGroupPrefab, 
+				new Vector3(
+					0f /* TODO offset based on Placement */,
+					0f,
+					0f /* TODO offset based on Placement */),
+				Quaternion.identity);
+			
+			var trapRoomGO = Rooms[trapInfo.RoomID];
+			var trapsChild = trapRoomGO.transform.Find("Traps");
+			if (trapsChild == null)
+			{
+				var trapsChildGO = new GameObject();
+				trapsChild = trapsChildGO.transform;
+				trapsChild.name = "Traps";
+				trapsChild.parent = trapRoomGO.transform;
+			}
+			trapGroupGO.transform.parent = trapsChild;
+			trapGroupGO.name = trapInfo.Type.ToString();
+			
+			trapGroupGO.AddComponent(SelectTrapController(trapInfo.Type));
+			
+			var trapController = trapGroupGO.GetComponent<TrapController>();
+			if (trapController != null)
+			{
+				TrapManager.Instance.RegisterTrap(trapController, trapInfo.KeyBinding);
+				trapController.Placement = trapInfo.Placement;
+				trapController.Direction = trapInfo.Direction;
+			}
 		}
+		
+		// Spawn character
+		var startingRoomPos = Rooms[mazeInfo.StartingRoomID].transform.position;
+		var player = (GameObject)GameObject.Instantiate(PlayerPrefab);
+		player.transform.position = startingRoomPos;
+		player.transform.Rotate(new Vector3(0f, mazeInfo.StartingDirection.GetRotation(), 0f));
+		player.name = "MazePlayerController";
+
+		player.GetComponent<CameraPicker>().Initialize(UseOVR);
 	}
 	
 	private GameObject SelectRoomPrefab(RoomMaterialType materialType)
@@ -97,24 +129,24 @@ public class MazeManager : MonoBehaviour
 		Debug.LogWarning("Unknown floor material type " + materialType + ", defaulting to Metal");
 		return MetalRoomPrefab;
 	}
-	
-	private GameObject SelectTrapPrefab(TrapType trapType)
-	{
+
+	private static string SelectTrapController(TrapType trapType)
+	{		
 		switch (trapType)
 		{
-			case TrapType.Spikes:
-				return SpikesTrapPrefab;
-			case TrapType.FlameThrower:
-				return FlameThrowerTrapPrefab;
-			case TrapType.LiquidThrower:
-				return LiquidThrowerTrapPrefab;
-			case TrapType.Projectiles:
-				return ProjectilesTrapPrefab;
+		case TrapType.Spikes:
+			return typeof(SpikesTrapController).Name;
+		case TrapType.FlameThrower:
+			return typeof(FlameThrowerTrapController).Name;
+//		case TrapType.LiquidThrower:
+//			return typeof(LiquidThrowerTrapController).Name;
+//		case TrapType.Projectiles:
+//			return typeof(ProjectilesTrapController).Name;
 		}
 		Debug.LogWarning("Unknown trap type " + trapType + ", defaulting to Spikes");
-		return SpikesTrapPrefab;
+		return "SpikeTrapController";
 	}
-
+	
 	private static bool ValidateMaze(Serialization.MazeInfo mazeInfo){
 		if (mazeInfo.Rooms == null || mazeInfo.Rooms.Count == 0)
 		{
@@ -221,12 +253,10 @@ public class MazeManager : MonoBehaviour
 			var placement = (trap.RoomID << 4) | (((int)trap.Placement) & 0xF); 
 			if (trapPlacements.Contains(placement))
 			{
-			Debug.Log (placement);
 				errors.Add ("The placement of Trap with ID " + trap.ID + " is invalid because Room with ID " + trap.RoomID + " already contains a Trap in its " + trap.Placement.ToString() + " section.");
 			}
 			else
 			{
-				Debug.Log (placement);
 				trapPlacements.Add (placement);
 			}
 		}
@@ -247,7 +277,7 @@ public class MazeManager : MonoBehaviour
 		return coord * (RoomConstants.RoomSize + RoomConstants.RoomSpacing); 
 	}
 
-	private void ClearRooms() {
+	private void Clear() {
 		foreach (var room in Rooms.Values) {
 			GameObject.Destroy(room.gameObject);
 		}

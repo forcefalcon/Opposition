@@ -1,0 +1,120 @@
+{
+ 	"StartingRoomID": 1,
+ 	"GoalRoomIDs": [2, 5, 6, 7],
+ 	"Rooms": [
+ 		{
+ 			"ID": 1,
+ 			"Position": { "X": 0, "Y": 2},
+ 			"FloorMaterial": "Wood",
+ 			"Connections": ["East"]
+ 		},
+ 		{
+ 			"ID": 2,
+ 			"Position": { "X": 1, "Y": 2},
+ 			"FloorMaterial": "Metal",
+ 			"Connections": ["West", "South"]
+ 		},
+ 		{
+ 			"ID": 3,
+ 			"Position": { "X": 1, "Y": 1},
+ 			"FloorMaterial": "Dirt",
+ 			"Connections": ["North", "East", "South"]
+ 		},
+ 		{
+ 			"ID": 4,
+ 			"Position": { "X": 2, "Y": 1},
+ 			"FloorMaterial": "Wood",
+ 			"Connections": ["West", "South"]
+ 		},
+ 		{
+ 			"ID": 5,
+ 			"Position": { "X": 0, "Y": 0},
+ 			"FloorMaterial": "Dirt",
+ 			"Connections": ["East"]
+ 		},
+		{
+ 			"ID": 6,
+ 			"Position": { "X": 1, "Y": 0},
+ 			"FloorMaterial": "Water",
+ 			"Connections": ["North", "West"]
+ 		},
+		{
+			"ID": 7,
+			"Position": { "X": 2, "Y": 0},
+			"FloorMaterial": "Concrete",
+ 			"Connections": ["North"]
+		}
+	],
+	"Traps": [
+		{
+			"ID": 1,
+			"RoomID": 2,
+			"Placement": "NorthEast",
+			"Type": "Fire",
+			"KeyBinding": "E"
+		},
+		{
+			"ID": 2,
+			"RoomID": 2,
+			"Placement": "SouthEast",
+			"Type": "Spikes",
+			"KeyBinding": "D"
+		},
+		{
+			"ID": 3,
+			"RoomID": 3,
+			"Placement": "NorthWest",
+			"Type": "Liquid",
+			"KeyBinding": "S"
+		},
+		{
+			"ID": 4,
+			"RoomID": 3,
+			"Placement": "SouthEast",
+			"Type": "Fire",
+			"KeyBinding": "C"
+		},
+		{
+			"ID": 5,
+			"RoomID": 4,
+			"Placement": "NorthWest",
+			"Type": "Liquid",
+			"KeyBinding": "R"
+		},
+		{
+			"ID": 6,
+			"RoomID": 4,
+			"Placement": "SouthWest",
+			"Type": "Spikes",
+			"KeyBinding": "F"
+		},
+		{
+			"ID": 7,
+			"RoomID": 5,
+			"Placement": "NorthEast",
+			"Type": "Fire",
+			"KeyBinding": "A"
+		},
+		{
+			"ID": 8,
+			"RoomID": 5,
+			"Placement": "SouthEast",
+			"Type": "Liquid",
+			"KeyBinding": "Z"
+		},
+		{
+			"ID": 9,
+			"RoomID": 6,
+			"Placement": "SouthWest",
+			"Type": "Spikes",
+			"KeyBinding": "X"
+		},
+		{
+			"ID": 10,
+			"RoomID": 7,
+			"Placement": "NorthWest",
+			"Type": "Arrows",
+			"KeyBinding": "V"
+		}
+ 	]
+}

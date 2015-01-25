@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 08dffe3691bc2e94fa5c004ceb431776
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - SpikesTrapPrefab: {fileID: 180216, guid: 527daa7fe029aa94faf4a9f9976e80fb, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

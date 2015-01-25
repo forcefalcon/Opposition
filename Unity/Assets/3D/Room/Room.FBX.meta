@@ -1,0 +1,142 @@
+fileFormatVersion: 2
+guid: a6b9d8b9359a1024199cd4ba4f15947d
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Ceiling
+    100002: Collisions
+    100004: Door
+    100006: EastDoor
+    100008: EastDoor 1
+    100010: EastDoorFrame
+    100012: NorthDoorFrame
+    100014: Pillars
+    100016: //RootNode
+    100018: SouthDoor
+    100020: SouthDoorFrame
+    100022: Walls
+    100024: WestDoorFrame
+    100026: WesttDoor
+    100028: EasttDoor
+    100030: NorthDoor
+    100032: WestDoor
+    400000: Ceiling
+    400002: Collisions
+    400004: Door
+    400006: EastDoor
+    400008: EastDoor 1
+    400010: EastDoorFrame
+    400012: NorthDoorFrame
+    400014: Pillars
+    400016: //RootNode
+    400018: SouthDoor
+    400020: SouthDoorFrame
+    400022: Walls
+    400024: WestDoorFrame
+    400026: WesttDoor
+    400028: EasttDoor
+    400030: NorthDoor
+    400032: WestDoor
+    2300000: Ceiling
+    2300002: Collisions
+    2300004: Door
+    2300006: EastDoor
+    2300008: EastDoor 1
+    2300010: EastDoorFrame
+    2300012: NorthDoorFrame
+    2300014: Pillars
+    2300016: SouthDoor
+    2300018: SouthDoorFrame
+    2300020: Walls
+    2300022: WestDoorFrame
+    2300024: WesttDoor
+    2300026: EasttDoor
+    2300028: NorthDoor
+    2300030: WestDoor
+    3300000: Ceiling
+    3300002: Collisions
+    3300004: Door
+    3300006: EastDoor
+    3300008: EastDoor 1
+    3300010: EastDoorFrame
+    3300012: NorthDoorFrame
+    3300014: Pillars
+    3300016: SouthDoor
+    3300018: SouthDoorFrame
+    3300020: Walls
+    3300022: WestDoorFrame
+    3300024: WesttDoor
+    3300026: EasttDoor
+    3300028: NorthDoor
+    3300030: WestDoor
+    4300000: Door
+    4300002: NorthDoorFrame
+    4300004: Ceiling
+    4300006: WestDoorFrame
+    4300008: EastDoor
+    4300010: Walls
+    4300012: SouthDoorFrame
+    4300014: SouthDoor
+    4300016: EastDoorFrame
+    4300018: EastDoor
+    4300020: Pillars
+    4300022: Collisions
+    4300024: WesttDoor
+    4300026: EasttDoor
+    4300028: NorthDoor
+    4300030: WestDoor
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 

@@ -1,0 +1,59 @@
+{
+ 	"StartingRoomID": 1,
+ 	"GoalRoomIDs": [5, 2, 3],
+ 	"Rooms": [
+ 		{
+ 			"ID": 1,
+ 			"Position": { "X": 0, "Y": 0},
+ 			"FloorMaterial": "Metal",
+ 			"Connections": ["East"],
+ 		},
+ 		{
+ 			"ID": 2,
+ 			"Position": { "X": 1, "Y": 0},
+ 			"FloorMaterial": "Metal",
+ 			"Connections": ["West", "East", "South"]
+ 		},
+ 		{
+ 			"ID": 3,
+ 			"Position": { "X": 2, "Y": 0},
+ 			"FloorMaterial": "Metal",
+ 			"Connections": ["West", "North"]
+ 		},
+ 		{
+ 			"ID": 4,
+ 			"Position": { "X": 2, "Y": 1},
+ 			"FloorMaterial": "Metal",
+ 			"Connections": ["South"]
+ 		},
+ 		{
+ 			"ID": 5,
+ 			"Position": { "X": 1, "Y": -1},
+ 			"FloorMaterial": "Metal",
+ 			"Connections": ["North"]
+ 		}
+ 	],
+	"Traps": [
+		{
+			"ID": 1,
+			"RoomID": 4,
+			"Placement": "NorthEast",
+			"Type": "Spikes",
+			"KeyBinding": "Q"
+		},
+		{
+			"ID": 2,
+			"RoomID": 1,
+			"Placement": "NorthEast",
+			"Type": "Spikes",
+			"KeyBinding": "R"
+		},
+		{
+			"ID": 3,
+			"RoomID": 1,
+			"Placement": "NorthWest",
+			"Type": "Spikes",
+			"KeyBinding": "S"
+		}
+	]
+}
