@@ -20,7 +20,7 @@ public class CharacterAnimationController : MonoBehaviour
 		{
 			float animSpeed = Mathf.Clamp01(_controller.velocity.magnitude / RunSpeed) * 2.0f;
 
-			Debug.Log(animSpeed);
+			//Debug.Log(animSpeed);
 			_animator.SetFloat("Blend", animSpeed);
 		}
 	}

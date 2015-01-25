@@ -14,16 +14,254 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="4072029455" Language="SFX">
-			<ShortName>New_SoundBank</ShortName>
-			<Path>New_SoundBank.bnk</Path>
+		<SoundBank Id="3278463154" Language="SFX">
+			<ShortName>AllSounds</ShortName>
+			<Path>AllSounds.bnk</Path>
 			<IncludedEvents>
-				<Event Id="461776654" Name="Play_balloonPop2"/>
+				<Event Id="2381502256" Name="AMB_PLAY" MaxAttenuation="10.000000"/>
+				<Event Id="423994534" Name="Player_Footsteps_E"/>
+				<Event Id="991582462" Name="SFX_FeedBack_Collectibles_Shimmer" MaxAttenuation="20.000000"/>
+				<Event Id="4279255233" Name="SFX_Feedbacks_Collectibles_OpenChest"/>
+				<Event Id="2997044537" Name="SFX_Torches" MaxAttenuation="10.000000"/>
+				<Event Id="2606762442" Name="SFX_Traps_Impacts_Flames_E"/>
+				<Event Id="3779648076" Name="SFX_Traps_Impacts_Guillotine_E"/>
+				<Event Id="2320248713" Name="SFX_Traps_Impacts_Liquids_E"/>
+				<Event Id="2999265302" Name="SFX_Traps_Impacts_Projectiles_E"/>
+				<Event Id="1953162899" Name="SFX_Traps_Impacts_Spikes_E"/>
+				<Event Id="924253443" Name="SFX_Traps_Mechanisms_Flames_E" MaxAttenuation="30.000000"/>
+				<Event Id="276062753" Name="SFX_Traps_Mechanisms_Guillotine_E" MaxAttenuation="30.000000"/>
+				<Event Id="3871191030" Name="SFX_Traps_Mechanisms_Liquids_E" MaxAttenuation="30.000000"/>
+				<Event Id="3766497685" Name="SFX_Traps_Mechanisms_Projectiles_E" MaxAttenuation="30.000000"/>
+				<Event Id="57082998" Name="SFX_Traps_Mechanisms_Spikes_E" MaxAttenuation="30.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
-				<File Id="278013864" Language="SFX">
-					<ShortName>balloonPop2.wav</ShortName>
-					<Path>SFX\balloonPop2_DDC98EF4.wem</Path>
+				<File Id="9784138" Language="SFX">
+					<ShortName>Footsteps\Dirt\Player_Footstep_Dirt_03.wav</ShortName>
+					<Path>SFX\Footsteps\Dirt\Player_Footstep_Dirt_03_DDC98EF4.wem</Path>
+				</File>
+				<File Id="20718203" Language="SFX">
+					<ShortName>SFX\Traps\Impacts\SFX_Traps_Impact_Liquids_01.wav</ShortName>
+					<Path>SFX\SFX\Traps\Impacts\SFX_Traps_Impact_Liquids_01_DDC98EF4.wem</Path>
+				</File>
+				<File Id="53036984" Language="SFX">
+					<ShortName>Footsteps\Dirt\Player_Footstep_Dirt_01.wav</ShortName>
+					<Path>SFX\Footsteps\Dirt\Player_Footstep_Dirt_01_DDC98EF4.wem</Path>
+				</File>
+				<File Id="53901280" Language="SFX">
+					<ShortName>SFX\Traps\Impacts\SFX_Traps_Impact_Guillotine_01.wav</ShortName>
+					<Path>SFX\SFX\Traps\Impacts\SFX_Traps_Impact_Guillotine_01_DDC98EF4.wem</Path>
+				</File>
+				<File Id="88719381" Language="SFX">
+					<ShortName>SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Flames_03.wav</ShortName>
+					<Path>SFX\SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Flames_03_DDC98EF4.wem</Path>
+				</File>
+				<File Id="156915466" Language="SFX">
+					<ShortName>Footsteps\Water\Player_Footstep_Water_03.wav</ShortName>
+					<Path>SFX\Footsteps\Water\Player_Footstep_Water_03_DDC98EF4.wem</Path>
+				</File>
+				<File Id="180464962" Language="SFX">
+					<ShortName>SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Guillotine_01.wav</ShortName>
+					<Path>SFX\SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Guillotine_01_DDC98EF4.wem</Path>
+				</File>
+				<File Id="200658471" Language="SFX">
+					<ShortName>Footsteps\Metal\Player_Footstep_Metal_03.wav</ShortName>
+					<Path>SFX\Footsteps\Metal\Player_Footstep_Metal_03_DDC98EF4.wem</Path>
+				</File>
+				<File Id="203134829" Language="SFX">
+					<ShortName>AMB\RND\AMB_Small_Rock_RND_03.wav</ShortName>
+					<Path>SFX\AMB\RND\AMB_Small_Rock_RND_03_DDC98EF4.wem</Path>
+				</File>
+				<File Id="224295914" Language="SFX">
+					<ShortName>Footsteps\Water\Player_Footstep_Water_02.wav</ShortName>
+					<Path>SFX\Footsteps\Water\Player_Footstep_Water_02_DDC98EF4.wem</Path>
+				</File>
+				<File Id="276297675" Language="SFX">
+					<ShortName>Footsteps\Wood\Player_Footstep_Wood_03.wav</ShortName>
+					<Path>SFX\Footsteps\Wood\Player_Footstep_Wood_03_DDC98EF4.wem</Path>
+				</File>
+				<File Id="286742216" Language="SFX">
+					<ShortName>Footsteps\Concrete\Player_Footstep_Concrete_05.wav</ShortName>
+					<Path>SFX\Footsteps\Concrete\Player_Footstep_Concrete_05_DDC98EF4.wem</Path>
+				</File>
+				<File Id="328582245" Language="SFX">
+					<ShortName>Footsteps\Concrete\Player_Footstep_Concrete_01.wav</ShortName>
+					<Path>SFX\Footsteps\Concrete\Player_Footstep_Concrete_01_DDC98EF4.wem</Path>
+				</File>
+				<File Id="349017121" Language="SFX">
+					<ShortName>SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Projectiles_02.wav</ShortName>
+					<Path>SFX\SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Projectiles_02_DDC98EF4.wem</Path>
+				</File>
+				<File Id="353906931" Language="SFX">
+					<ShortName>Footsteps\Concrete\Player_Footstep_Concrete_03.wav</ShortName>
+					<Path>SFX\Footsteps\Concrete\Player_Footstep_Concrete_03_DDC98EF4.wem</Path>
+				</File>
+				<File Id="357510039" Language="SFX">
+					<ShortName>Footsteps\Concrete\Player_Footstep_Concrete_02.wav</ShortName>
+					<Path>SFX\Footsteps\Concrete\Player_Footstep_Concrete_02_DDC98EF4.wem</Path>
+				</File>
+				<File Id="364095590" Language="SFX">
+					<ShortName>AMB\RND\AMB_Water_Drip_RND_04.wav</ShortName>
+					<Path>SFX\AMB\RND\AMB_Water_Drip_RND_04_DDC98EF4.wem</Path>
+				</File>
+				<File Id="372200532" Language="SFX">
+					<ShortName>Footsteps\Water\Player_Footstep_Water_01.wav</ShortName>
+					<Path>SFX\Footsteps\Water\Player_Footstep_Water_01_DDC98EF4.wem</Path>
+				</File>
+				<File Id="396752051" Language="SFX">
+					<ShortName>SFX\FeedBack\Collectibles\SFX_Feedback_OpenChest_Lethal.wav</ShortName>
+					<Path>SFX\SFX\FeedBack\Collectibles\SFX_Feedback_OpenChest_Lethal_DDC98EF4.wem</Path>
+				</File>
+				<File Id="400850352" Language="SFX">
+					<ShortName>Footsteps\Wood\Player_Footstep_Wood_02.wav</ShortName>
+					<Path>SFX\Footsteps\Wood\Player_Footstep_Wood_02_DDC98EF4.wem</Path>
+				</File>
+				<File Id="408652964" Language="SFX">
+					<ShortName>Footsteps\Wood\Player_Footstep_Wood_04.wav</ShortName>
+					<Path>SFX\Footsteps\Wood\Player_Footstep_Wood_04_DDC98EF4.wem</Path>
+				</File>
+				<File Id="413997658" Language="SFX">
+					<ShortName>AMB\RND\AMB_Water_Drip_RND_06.wav</ShortName>
+					<Path>SFX\AMB\RND\AMB_Water_Drip_RND_06_DDC98EF4.wem</Path>
+				</File>
+				<File Id="452832771" Language="SFX">
+					<ShortName>AMB\RND\AMB_Water_Drip_RND_02.wav</ShortName>
+					<Path>SFX\AMB\RND\AMB_Water_Drip_RND_02_DDC98EF4.wem</Path>
+				</File>
+				<File Id="507626185" Language="SFX">
+					<ShortName>AMB\RND\AMB_Water_Drip_RND_05.wav</ShortName>
+					<Path>SFX\AMB\RND\AMB_Water_Drip_RND_05_DDC98EF4.wem</Path>
+				</File>
+				<File Id="510173556" Language="SFX">
+					<ShortName>Footsteps\Dirt\Player_Footstep_Dirt_02.wav</ShortName>
+					<Path>SFX\Footsteps\Dirt\Player_Footstep_Dirt_02_DDC98EF4.wem</Path>
+				</File>
+				<File Id="524059914" Language="SFX">
+					<ShortName>AMB\RND\AMB_Water_Drip_RND_07.wav</ShortName>
+					<Path>SFX\AMB\RND\AMB_Water_Drip_RND_07_DDC98EF4.wem</Path>
+				</File>
+				<File Id="530096957" Language="SFX">
+					<ShortName>Footsteps\Concrete\Player_Footstep_Concrete_04.wav</ShortName>
+					<Path>SFX\Footsteps\Concrete\Player_Footstep_Concrete_04_DDC98EF4.wem</Path>
+				</File>
+				<File Id="564650286" Language="SFX">
+					<ShortName>SFX\Traps\Impacts\SFX_Traps_Impact_Flames_01.wav</ShortName>
+					<Path>SFX\SFX\Traps\Impacts\SFX_Traps_Impact_Flames_01_DDC98EF4.wem</Path>
+				</File>
+				<File Id="565108363" Language="SFX">
+					<ShortName>Footsteps\Water\Player_Footstep_Water_05.wav</ShortName>
+					<Path>SFX\Footsteps\Water\Player_Footstep_Water_05_DDC98EF4.wem</Path>
+				</File>
+				<File Id="571641791" Language="SFX">
+					<ShortName>Footsteps\Water\Player_Footstep_Water_04.wav</ShortName>
+					<Path>SFX\Footsteps\Water\Player_Footstep_Water_04_DDC98EF4.wem</Path>
+				</File>
+				<File Id="579115152" Language="SFX">
+					<ShortName>Footsteps\Metal\Player_Footstep_Metal_05.wav</ShortName>
+					<Path>SFX\Footsteps\Metal\Player_Footstep_Metal_05_DDC98EF4.wem</Path>
+				</File>
+				<File Id="609990954" Language="SFX">
+					<ShortName>Footsteps\Wood\Player_Footstep_Wood_01.wav</ShortName>
+					<Path>SFX\Footsteps\Wood\Player_Footstep_Wood_01_DDC98EF4.wem</Path>
+				</File>
+				<File Id="612683448" Language="SFX">
+					<ShortName>AMB\RND\AMB_Small_Rock_RND_01.wav</ShortName>
+					<Path>SFX\AMB\RND\AMB_Small_Rock_RND_01_DDC98EF4.wem</Path>
+				</File>
+				<File Id="635292002" Language="SFX">
+					<ShortName>Footsteps\Dirt\Player_Footstep_Dirt_04.wav</ShortName>
+					<Path>SFX\Footsteps\Dirt\Player_Footstep_Dirt_04_DDC98EF4.wem</Path>
+				</File>
+				<File Id="641172753" Language="SFX">
+					<ShortName>SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Projectiles_01.wav</ShortName>
+					<Path>SFX\SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Projectiles_01_DDC98EF4.wem</Path>
+				</File>
+				<File Id="676817148" Language="SFX">
+					<ShortName>SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Spikes_03.wav</ShortName>
+					<Path>SFX\SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Spikes_03_DDC98EF4.wem</Path>
+				</File>
+				<File Id="681208647" Language="SFX">
+					<ShortName>Footsteps\Metal\Player_Footstep_Metal_04.wav</ShortName>
+					<Path>SFX\Footsteps\Metal\Player_Footstep_Metal_04_DDC98EF4.wem</Path>
+				</File>
+				<File Id="700440327" Language="SFX">
+					<ShortName>AMB\RND\AMB_Water_Drip_RND_03.wav</ShortName>
+					<Path>SFX\AMB\RND\AMB_Water_Drip_RND_03_DDC98EF4.wem</Path>
+				</File>
+				<File Id="701215673" Language="SFX">
+					<ShortName>AMB\RND\AMB_Small_Rock_RND_02.wav</ShortName>
+					<Path>SFX\AMB\RND\AMB_Small_Rock_RND_02_DDC98EF4.wem</Path>
+				</File>
+				<File Id="738278748" Language="SFX">
+					<ShortName>SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Flames_02.wav</ShortName>
+					<Path>SFX\SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Flames_02_DDC98EF4.wem</Path>
+				</File>
+				<File Id="751727654" Language="SFX">
+					<ShortName>Footsteps\Dirt\Player_Footstep_Dirt_05.wav</ShortName>
+					<Path>SFX\Footsteps\Dirt\Player_Footstep_Dirt_05_DDC98EF4.wem</Path>
+				</File>
+				<File Id="763487167" Language="SFX">
+					<ShortName>AMB\AMB_Dungeon_Generic_Lp.wav</ShortName>
+					<Path>SFX\AMB\AMB_Dungeon_Generic_Lp_07873108.wem</Path>
+				</File>
+				<File Id="822011276" Language="SFX">
+					<ShortName>Footsteps\Metal\Player_Footstep_Metal_02.wav</ShortName>
+					<Path>SFX\Footsteps\Metal\Player_Footstep_Metal_02_DDC98EF4.wem</Path>
+				</File>
+				<File Id="824318454" Language="SFX">
+					<ShortName>SFX\FeedBack\Collectibles\SFX_Feedback_OpenChest_NonLethal.wav</ShortName>
+					<Path>SFX\SFX\FeedBack\Collectibles\SFX_Feedback_OpenChest_NonLethal_DDC98EF4.wem</Path>
+				</File>
+				<File Id="849537104" Language="SFX">
+					<ShortName>SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Spikes_02.wav</ShortName>
+					<Path>SFX\SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Spikes_02_DDC98EF4.wem</Path>
+				</File>
+				<File Id="883883074" Language="SFX">
+					<ShortName>SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Flames_01.wav</ShortName>
+					<Path>SFX\SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Flames_01_DDC98EF4.wem</Path>
+				</File>
+				<File Id="894877822" Language="SFX">
+					<ShortName>Footsteps\Metal\Player_Footstep_Metal_01.wav</ShortName>
+					<Path>SFX\Footsteps\Metal\Player_Footstep_Metal_01_DDC98EF4.wem</Path>
+				</File>
+				<File Id="905801372" Language="SFX">
+					<ShortName>SFX\FeedBack\Collectibles\SFX_Feedback_Collectible_Shimmer.wav</ShortName>
+					<Path>SFX\SFX\FeedBack\Collectibles\SFX_Feedback_Collectible_Shimmer_74E2535B.wem</Path>
+				</File>
+				<File Id="919829903" Language="SFX">
+					<ShortName>SFX\FeedBack\SFX_Feedback_Death.wav</ShortName>
+					<Path>SFX\SFX\FeedBack\SFX_Feedback_Death_DDC98EF4.wem</Path>
+				</File>
+				<File Id="941094187" Language="SFX">
+					<ShortName>SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Liquids_01.wav</ShortName>
+					<Path>SFX\SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Liquids_01_DDC98EF4.wem</Path>
+				</File>
+				<File Id="949881510" Language="SFX">
+					<ShortName>SFX\Traps\Impacts\SFX_Traps_Impact_Spikes_01.wav</ShortName>
+					<Path>SFX\SFX\Traps\Impacts\SFX_Traps_Impact_Spikes_01_DDC98EF4.wem</Path>
+				</File>
+				<File Id="978679306" Language="SFX">
+					<ShortName>SFX\Traps\Impacts\SFX_Traps_Impact_Projectiles_01.wav</ShortName>
+					<Path>SFX\SFX\Traps\Impacts\SFX_Traps_Impact_Projectiles_01_DDC98EF4.wem</Path>
+				</File>
+				<File Id="1037980865" Language="SFX">
+					<ShortName>SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Spikes_01.wav</ShortName>
+					<Path>SFX\SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Spikes_01_DDC98EF4.wem</Path>
+				</File>
+				<File Id="1040184230" Language="SFX">
+					<ShortName>Footsteps\Wood\Player_Footstep_Wood_05.wav</ShortName>
+					<Path>SFX\Footsteps\Wood\Player_Footstep_Wood_05_DDC98EF4.wem</Path>
+				</File>
+				<File Id="1057425024" Language="SFX">
+					<ShortName>SFX\Torches\SFX_Torches_Lp.wav</ShortName>
+					<Path>SFX\SFX\Torches\SFX_Torches_Lp_351E0979.wem</Path>
+				</File>
+				<File Id="1059668286" Language="SFX">
+					<ShortName>SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Liquids_02.wav</ShortName>
+					<Path>SFX\SFX\Traps\Mechanisms\SFX_Traps_Mechanisms_Liquids_02_DDC98EF4.wem</Path>
+				</File>
+				<File Id="1067236752" Language="SFX">
+					<ShortName>AMB\RND\AMB_Water_Drip_RND_01.wav</ShortName>
+					<Path>SFX\AMB\RND\AMB_Water_Drip_RND_01_DDC98EF4.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
