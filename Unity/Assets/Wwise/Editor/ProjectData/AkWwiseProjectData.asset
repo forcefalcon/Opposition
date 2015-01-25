@@ -14,18 +14,8 @@ MonoBehaviour:
   EventWwu:
   - PhysicalPath: Events\Default Work Unit.wwu
     ParentPhysicalPath: 
-    Guid: '{A8803AA5-8988-4EA1-9250-CA3A4C4F27E2}'
-    List:
-    - Name: Play_balloonPop2
-      Path: Default Work Unit\Play_balloonPop2
-      PathAndIcons:
-      - ElementName: Default Work Unit
-        ObjectType: 12
-      - ElementName: Play_balloonPop2
-        ObjectType: 3
-      ID: 461776654
-      Guid: 66c7ec8e6033be40bf3427869632f021
-      maxAttenuation: 0
+    Guid: '{7BFB56CF-66E3-4553-84E7-7F22D8726E7E}'
+    List: []
   - PhysicalPath: Events\Global_Game_Jam.wwu
     ParentPhysicalPath: 
     Guid: '{E5DAF4AF-D907-4C72-A5AF-F93DA3B2215E}'
@@ -266,12 +256,12 @@ MonoBehaviour:
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     ParentPhysicalPath: 
-    Guid: '{99E3D8A0-0E57-448F-95CC-7A563BA69877}'
+    Guid: '{F3D56984-7CB8-4B4B-8874-05D7CD207BFF}'
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
     ParentPhysicalPath: 
-    Guid: '{0FB0557C-9CC9-48B5-9B20-0081B2385D7D}'
+    Guid: '{EB5B2E6C-35ED-4898-B1EF-E6AB0D0AF3FE}'
     List: []
   - PhysicalPath: Switches\Global_Game_Jam.wwu
     ParentPhysicalPath: 
@@ -349,11 +339,10 @@ MonoBehaviour:
   - /GGJ2015Wwise
   - /GGJ2015Wwise/Events
   - /GGJ2015Wwise/Events/Global_Game_Jam
-  - /GGJ2015Wwise/Events/Global_Game_Jam/Ambiance
-  - /GGJ2015Wwise/Switches
-  - /GGJ2015Wwise/Switches/Global_Game_Jam
-  m_lastPopulateTimePsrt1: -176009763
-  m_lastPopulateTimePart2: -1999501731
+  - /GGJ2015Wwise/Events/Global_Game_Jam/SFX
+  - /GGJ2015Wwise/Events/Global_Game_Jam/SFX/SFX_Torches
+  m_lastPopulateTimePsrt1: -1224689226
+  m_lastPopulateTimePart2: -1999501713
   autoPopulateEnabled: 1
   basePath: Audio\GeneratedSoundBanks
   language: English(US)

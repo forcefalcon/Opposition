@@ -302,5 +302,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_posOffsetData: {fileID: 0}
-  isEnvironmentAware: 1
+  isEnvironmentAware: 0
   isStaticObject: 0
