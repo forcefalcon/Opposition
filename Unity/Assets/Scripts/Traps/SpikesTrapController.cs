@@ -7,7 +7,7 @@ public class SpikesTrapController : TrapController
 	private const float SPIKE_TRIGGER_TIME = 0.1f;
 	private const float SPIKE_WAIT_TIME = 1.0f;
 	private const float SPIKE_RESET_TIME = 0.5f;
-	private const float SPIKE_COOLDOWN = SPIKE_TRIGGER_TIME + SPIKE_WAIT_TIME + SPIKE_RESET_TIME + 0.5f;
+	private const float SPIKE_COOLDOWN = SPIKE_TRIGGER_TIME + SPIKE_WAIT_TIME + SPIKE_RESET_TIME + 3f;
 
 	private List<SpikeController> _controllers = new List<SpikeController>();
 	private float _triggerTime = 0.0f;
