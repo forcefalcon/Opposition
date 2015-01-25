@@ -4,13 +4,14 @@ using System.Linq;
 
 public class CollectibleController : MonoBehaviour
 {
+	public const float PickupAnimDuration = 5f;
+	
 	public GameObject Cube;
 	public GameObject VFX_Souls;
 	public Placement Placement;
     public int CollectibleID;
 
 	private ParticleSystem [] CubeParticleSystems;
-	private const float PickupAnimDuration = 5f;
 	private float _tweenDuration;
 	private bool _tweening;
 	private bool _ending;
