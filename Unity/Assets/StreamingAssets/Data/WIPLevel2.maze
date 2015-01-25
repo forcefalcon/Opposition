@@ -1,6 +1,6 @@
 {
- 	"StartingRoomID": 1,
- 	"GoalRoomIDs": [X],
+ 	"StartingRoomID": 14,
+ 	"GoalRoomIDs": [1],
  	"Rooms": [
  		{
  			"ID": 1,
@@ -179,7 +179,7 @@
 			"ID": 10,
 			"RoomID": 9,
 			"Placement": "NorthEast",
-			"Type": ":LiquidThrower",
+			"Type": "LiquidThrower",
 			"KeyBinding": "J"
 		},
 		{
@@ -265,6 +265,36 @@
 			"ID": 1,
 			"RoomID": 1,
 			"Placement": "SouthWest"
+		},
+		{
+			"ID": 2,
+			"RoomID": 3,
+			"Placement": "NorthWest"
+		},
+		{
+			"ID": 3,
+			"RoomID": 5,
+			"Placement": "NorthEast"
+		},
+		{
+			"ID": 4,
+			"RoomID": 8,
+			"Placement": "SouthWest"
+		},
+		{
+			"ID": 5,
+			"RoomID": 11,
+			"Placement": "SouthWest"
+		},
+		{
+			"ID": 6,
+			"RoomID": 12,
+			"Placement": "NorthWest"
+		},
+		{
+			"ID": 7,
+			"RoomID": 18,
+			"Placement": "SouthEast",
 		}
- 	]
+	]
 }
