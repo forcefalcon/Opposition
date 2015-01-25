@@ -30,7 +30,7 @@
  			"ID": 5,
  			"Position": { "X": 0, "Y": 0},
  			"FloorMaterial": "Dirt",
- 			"Connections": ["North"]
+ 			"Connections": ["East"]
  		},
 		{
  			"ID": 6,
