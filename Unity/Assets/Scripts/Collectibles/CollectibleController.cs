@@ -11,6 +11,8 @@ public class CollectibleController : MonoBehaviour
 	public Placement Placement;
     public int CollectibleID;
 
+	public string OpenSound = "SFX_Feedbacks_Collectibles_OpenChest";
+
 	private ParticleSystem [] CubeParticleSystems;
 	private float _tweenDuration;
 	private bool _tweening;
@@ -26,6 +28,8 @@ public class CollectibleController : MonoBehaviour
 	{
 		// Start animating, playing sound...
 		AkSoundEngine.SetRTPCValue("Accomplishment", completionRatio, this.gameObject);
+
+		AkSoundEngine.PostEvent(OpenSound, this.gameObject);
 		
 		_tweenDuration = 0;
 		VFX_Souls.SetActive(true);

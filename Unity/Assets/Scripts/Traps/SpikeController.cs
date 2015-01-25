@@ -3,6 +3,9 @@ using System.Collections;
 
 public class SpikeController : MonoBehaviour
 {
+	public string SpikeTriggerSound;
+	public string SpikeImpactSound;
+
 	private const string SPIKE_TRIGGER_ANIM = "SpikeTrigger";
 	private const string SPIKE_RESET_ANIM = "SpikeReset";
 
@@ -26,6 +29,7 @@ public class SpikeController : MonoBehaviour
 			case State.Triggering:
 				collider.isTrigger = true;
 				animation.Play(SPIKE_TRIGGER_ANIM);
+				AkSoundEngine.PostEvent(SpikeTriggerSound, this.gameObject);
 				break;
 			case State.Waiting:
 				collider.isTrigger = false;
@@ -43,6 +47,7 @@ public class SpikeController : MonoBehaviour
 	{
 		if (_currentState == State.Triggering && other.tag == "Player" && ApplicationManager.Instance.IsPlaying)
 		{
+			AkSoundEngine.PostEvent(SpikeImpactSound, other.gameObject);
 			ApplicationManager.Instance.EndGame(true);
 		}
 	}

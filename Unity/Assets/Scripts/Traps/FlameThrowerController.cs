@@ -7,6 +7,9 @@ public class FlameThrowerController : MonoBehaviour
 	public GameObject VFX_FlameThrowerPrefab;
 	private GameObject _VFX_FlameThrowerInstance;
 	
+	public string FlameThrowerTriggerSound;
+	public string FlameThrowerImpactSound;
+	
 	public void Start()
 	{
 		_VFX_FlameThrowerInstance = (GameObject)GameObject.Instantiate(
@@ -47,6 +50,7 @@ public class FlameThrowerController : MonoBehaviour
 			break;
 		case State.Triggering:
 			_VFX_FlameThrowerInstance.SetActive(true);
+			AkSoundEngine.PostEvent(FlameThrowerTriggerSound, this.gameObject);
 			break;
 		}
 		
@@ -55,8 +59,9 @@ public class FlameThrowerController : MonoBehaviour
 	
 	void OnTriggerStay(Collider other)
 	{
-		if (_currentState == State.Waiting && other.tag == "Player")
+		if (_currentState == State.Waiting && other.tag == "Player" && ApplicationManager.Instance.IsPlaying)
 		{
+			AkSoundEngine.PostEvent(FlameThrowerImpactSound, other.gameObject);
 			ApplicationManager.Instance.EndGame(true);
 		}
 	}

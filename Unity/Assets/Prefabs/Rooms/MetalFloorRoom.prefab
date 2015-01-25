@@ -25,7 +25,7 @@ GameObject:
   - 4: {fileID: 406588}
   - 33: {fileID: 3306582}
   - 23: {fileID: 2306582}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - 33: {fileID: 3306584}
   - 23: {fileID: 2306584}
   - 65: {fileID: 6529594}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WestDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - 33: {fileID: 3306592}
   - 23: {fileID: 2306592}
   - 65: {fileID: 6529592}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SouthDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - 33: {fileID: 3306602}
   - 23: {fileID: 2306602}
   - 65: {fileID: 6529588}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EastDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   - 33: {fileID: 3306614}
   - 23: {fileID: 2306614}
   - 65: {fileID: 6529590}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: NorthDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 406676}
-  - 64: {fileID: 6406582}
   - 114: {fileID: 11437786}
   m_Layer: 0
   m_Name: MetalFloorRoom
@@ -237,6 +236,22 @@ GameObject:
   m_Layer: 8
   m_Name: Floor
   m_TagString: Floortype_Metal
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &115116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 415116}
+  - 64: {fileID: 6415116}
+  m_Layer: 9
+  m_Name: Collision
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1248,6 +1263,7 @@ Transform:
   - {fileID: 406652}
   - {fileID: 406656}
   - {fileID: 406674}
+  - {fileID: 415116}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &406686
@@ -1262,6 +1278,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 406676}
   m_RootOrder: 0
+--- !u!4 &415116
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115116}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 406676}
+  m_RootOrder: 13
 --- !u!4 &474602
 Transform:
   m_ObjectHideFlags: 1
@@ -2420,19 +2448,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174696}
   m_Mesh: {fileID: 4300000, guid: 21d6267117414c644be5a58f87ca42b8, type: 3}
---- !u!64 &6406582
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 106676}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 4300022, guid: a6b9d8b9359a1024199cd4ba4f15947d, type: 3}
 --- !u!64 &6406584
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -2446,6 +2461,19 @@ MeshCollider:
   m_SmoothSphereCollisions: 0
   m_Convex: 0
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &6415116
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115116}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 4300022, guid: a6b9d8b9359a1024199cd4ba4f15947d, type: 3}
 --- !u!65 &6529588
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2835,6 +2863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpdateRate: .333000004
+  RaycastOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &11474656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2884,6 +2913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpdateRate: .333000004
+  RaycastOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &11474662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2933,6 +2963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpdateRate: .333000004
+  RaycastOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &11474668
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2982,6 +3013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpdateRate: .333000004
+  RaycastOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &11474674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3031,6 +3063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpdateRate: .333000004
+  RaycastOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &11474680
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3080,6 +3113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpdateRate: .333000004
+  RaycastOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &11474686
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3129,6 +3163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpdateRate: .333000004
+  RaycastOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &11474692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3178,6 +3213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpdateRate: .333000004
+  RaycastOffset: {x: 0, y: 0, z: 0}
 --- !u!198 &19874634
 ParticleSystem:
   m_ObjectHideFlags: 1

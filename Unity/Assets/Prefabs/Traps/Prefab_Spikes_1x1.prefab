@@ -75,6 +75,7 @@ GameObject:
   - 111: {fileID: 11124066}
   - 65: {fileID: 6535038}
   - 114: {fileID: 11427574}
+  - 114: {fileID: 11469460}
   m_Layer: 0
   m_Name: Prefab_Spikes_1x1
   m_TagString: Untagged
@@ -581,6 +582,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 040b8c4af43d27d40b18ee204c7e5884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpikeTriggerSound: SFX_Traps_Mechanisms_Spikes_E
+  SpikeImpactSound: SFX_Traps_Impacts_Spikes_E
+--- !u!114 &11469460
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759493f0e7382754ea8c97a7d88cc1d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpdateRate: .333000004
+  RaycastOffset: {x: 0, y: 1, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -31,7 +31,7 @@ MonoBehaviour:
         ObjectType: 3
       ID: -1913465040
       Guid: 91dcb67629a53f4aaeeed3d751aeadd9
-      maxAttenuation: 10
+      maxAttenuation: 0
     - Name: Player_Footsteps_E
       Path: Global_Game_Jam\Player\Player_Footsteps\Player_Footsteps_E
       PathAndIcons:
@@ -59,7 +59,7 @@ MonoBehaviour:
         ObjectType: 3
       ID: 991582462
       Guid: d61fc862fc72724aaa1e3f6a50327813
-      maxAttenuation: 20
+      maxAttenuation: 0
     - Name: SFX_Feedbacks_Collectibles_OpenChest
       Path: Global_Game_Jam\SFX\SFX_Feedbacks\SFX_Feedbacks_Collectibles_OpenChest
       PathAndIcons:
@@ -87,7 +87,7 @@ MonoBehaviour:
         ObjectType: 3
       ID: -1297922759
       Guid: d89e3e9488ed8c428b828645672881d4
-      maxAttenuation: 10
+      maxAttenuation: 0
     - Name: SFX_Traps_Impacts_Flames_E
       Path: Global_Game_Jam\SFX\SFX_Traps\SFX_Traps_Impact\SFX_Traps_Impacts_Flames_E
       PathAndIcons:
@@ -183,7 +183,7 @@ MonoBehaviour:
         ObjectType: 3
       ID: 924253443
       Guid: 3e44f5cd6829884a851739cd74083237
-      maxAttenuation: 30
+      maxAttenuation: 0
     - Name: SFX_Traps_Mechanisms_Guillotine_E
       Path: Global_Game_Jam\SFX\SFX_Traps\SFX_Traps_Mechanisms\SFX_Traps_Mechanisms_Guillotine_E
       PathAndIcons:
@@ -199,7 +199,7 @@ MonoBehaviour:
         ObjectType: 3
       ID: 276062753
       Guid: 7f4161b62cb7694d825fba5429044daf
-      maxAttenuation: 30
+      maxAttenuation: 0
     - Name: SFX_Traps_Mechanisms_Liquids_E
       Path: Global_Game_Jam\SFX\SFX_Traps\SFX_Traps_Mechanisms\SFX_Traps_Mechanisms_Liquids_E
       PathAndIcons:
@@ -215,7 +215,7 @@ MonoBehaviour:
         ObjectType: 3
       ID: -423776266
       Guid: 7da6c10e1688eb4f98c0170b809885f2
-      maxAttenuation: 30
+      maxAttenuation: 0
     - Name: SFX_Traps_Mechanisms_Projectiles_E
       Path: Global_Game_Jam\SFX\SFX_Traps\SFX_Traps_Mechanisms\SFX_Traps_Mechanisms_Projectiles_E
       PathAndIcons:
@@ -231,7 +231,7 @@ MonoBehaviour:
         ObjectType: 3
       ID: -528469611
       Guid: fee1cfebdf924d4f97bf882e5b63fd77
-      maxAttenuation: 30
+      maxAttenuation: 0
     - Name: SFX_Traps_Mechanisms_Spikes_E
       Path: Global_Game_Jam\SFX\SFX_Traps\SFX_Traps_Mechanisms\SFX_Traps_Mechanisms_Spikes_E
       PathAndIcons:
@@ -247,7 +247,7 @@ MonoBehaviour:
         ObjectType: 3
       ID: 57082998
       Guid: 52f07ca2e6c8fe46aa78be5c18f52dd2
-      maxAttenuation: 30
+      maxAttenuation: 0
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     ParentPhysicalPath: 
@@ -335,9 +335,14 @@ MonoBehaviour:
         ObjectType: 7
       ID: -1016504142
       Guid: 75554f8544a5fe448fbe4497639eef81
-  ExpandedItems: []
-  m_lastPopulateTimePsrt1: -1224689226
-  m_lastPopulateTimePart2: -1999501713
+  ExpandedItems:
+  - /GGJ2015Wwise
+  - /GGJ2015Wwise/Events
+  - /GGJ2015Wwise/Events/Global_Game_Jam
+  - /GGJ2015Wwise/Events/Global_Game_Jam/SFX
+  - /GGJ2015Wwise/Events/Global_Game_Jam/SFX/SFX_Feedbacks
+  m_lastPopulateTimePsrt1: 1746287084
+  m_lastPopulateTimePart2: -1999501606
   autoPopulateEnabled: 1
   basePath: Audio\GeneratedSoundBanks
   language: English(US)
