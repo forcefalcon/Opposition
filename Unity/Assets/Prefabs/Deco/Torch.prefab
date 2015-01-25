@@ -94,6 +94,9 @@ GameObject:
   - 4: {fileID: 489384}
   - 33: {fileID: 3389374}
   - 23: {fileID: 2389374}
+  - 114: {fileID: 11444596}
+  - 114: {fileID: 11444598}
+  - 114: {fileID: 11444600}
   m_Layer: 0
   m_Name: Torch
   m_TagString: Untagged
@@ -240,6 +243,55 @@ Light:
   m_ShadowAngle: 0
   m_IndirectIntensity: 1
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &11444596
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6195e99b27af7d649b3a03726352b345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_posOffsetData: {fileID: 0}
+  isEnvironmentAware: 0
+  isStaticObject: 0
+--- !u!114 &11444598
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75d06106a40a7094597139fdc80b2099, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  valueGuid: d89e3e9488ed8c428b828645672881d4
+  eventID: -1297922759
+  soundEmitterObject: {fileID: 0}
+  enableActionOnEvent: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  transitionDuration: 0
+  m_callbackData: {fileID: 0}
+  multiPositionTypeLabel: 0
+  multiPositionArray: []
+--- !u!114 &11444600
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759493f0e7382754ea8c97a7d88cc1d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpdateRate: .333000004
 --- !u!198 &19889374
 ParticleSystem:
   m_ObjectHideFlags: 1
