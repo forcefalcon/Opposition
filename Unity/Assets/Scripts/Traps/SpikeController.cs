@@ -41,9 +41,9 @@ public class SpikeController : MonoBehaviour
 
 	void OnTriggerStay(Collider other)
 	{
-		if (_currentState == State.Triggering && other.tag == "Player")
+		if (_currentState == State.Triggering && other.tag == "Player" && ApplicationManager.Instance.IsPlaying)
 		{
-			Debug.Log("YOU DIED!!!");
+			ApplicationManager.Instance.EndGame(true);
 		}
 	}
 }

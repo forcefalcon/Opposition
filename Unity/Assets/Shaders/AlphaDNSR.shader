@@ -1,8 +1,6 @@
-﻿Shader "GameJam/Alpha/AlphaDNSR" {
+﻿Shader "GameJam/Alpha/AlphaDNR" {
 	Properties {
 		_MainTex ("Base (RGB)", 2D) = "white" {}
-		_SpecColor("Specular Color",Color) = (1,1,1,1)
-		_Shininess("Glossiness",Range(0,5)) = 0.5
 		_BumpMap ("Bumpmap", 2D) = "bump" {}
 		_Cube ("Cubemap", CUBE) = "" {}
 		_ReflColor("Reflection Color",Color) = (1,1,1,1)
@@ -14,14 +12,13 @@
 		LOD 200
 		
 		CGPROGRAM
-		#pragma surface surf BlinnPhong vertex:vert alpha
+		#pragma surface surf Lambert vertex:vert alpha
 		#pragma target 3.0
 
 		sampler2D _MainTex;
 		sampler2D _BumpMap;
 		samplerCUBE _Cube;
 		fixed3 _ReflColor;
-		float _Shininess;
 
 		struct Input {
 			float2 uv_MainTex;
@@ -43,8 +40,6 @@
 			
 			o.Albedo = c.rgb * IN.color.rgb;
 		 	o.Normal = bump;
-		 	o.Specular = c.a;
-		 	o.Gloss = _Shininess;
           	o.Emission = cubeMap * _ReflColor;
 			o.Alpha = c.a * IN.color.a;
 		}

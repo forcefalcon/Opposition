@@ -168,7 +168,7 @@ MonoBehaviour:
   TrapGroupPrefab: {fileID: 159434, guid: a8165a582a544e945b2bc24c95c55d88, type: 2}
   CollectiblePrefab: {fileID: 153886, guid: 48f9f9e3e8d458741897e96f68806e0d, type: 2}
   PlayerPrefab: {fileID: 161376, guid: 3e0d99f788ba1b944bdc619256fd4831, type: 2}
-  UseOVR: 0
+  UseOVR: 1
   levelName: 
 --- !u!4 &298434210
 Transform:
@@ -371,7 +371,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11409058, guid: 241fa7736118a1d4cb86d4d3f849dfa7, type: 2}
       propertyPath: UseOVR
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 241fa7736118a1d4cb86d4d3f849dfa7, type: 2}
@@ -648,6 +648,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1882732341}
+  - 114: {fileID: 1882732342}
   m_Layer: 0
   m_Name: ApplicationManager
   m_TagString: Untagged
@@ -667,3 +668,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &1882732342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1882732340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b50a59794655846a95dbb90c149864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeathTexture: {fileID: 2800000, guid: 284ff50b8372abb46824da9c94d7477a, type: 3}
+  SuccessTexture: {fileID: 2800000, guid: b69326c5a74e1664b8112168bba1a5ed, type: 3}
+  OverlayRate: 1
