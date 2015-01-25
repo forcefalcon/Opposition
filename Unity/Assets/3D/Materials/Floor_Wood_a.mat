@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Floor_Wood_a
-  m_Shader: {fileID: 23, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -17,38 +17,27 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 27edb09cefa062e429b03926ded9a83c, type: 3}
-          m_Scale: {x: 2, y: 2}
+          m_Texture: {fileID: 2800000, guid: b36261d4bc0e4ba4aa0e5d1edb3f76d3, type: 3}
+          m_Scale: {x: 3, y: 3}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 2800000, guid: 21242c516fdec3740be75cbbac7fc898, type: 3}
-          m_Scale: {x: 2, y: 2}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Cube
-        second:
-          m_Texture: {fileID: 8900000, guid: 521f8ea8ebf60c243bec6ffc5d3943fd, type: 2}
-          m_Scale: {x: 1, y: 1}
+          m_Texture: {fileID: 2800000, guid: 3f03b4a1153200d4d99ca24d2121d068, type: 3}
+          m_Scale: {x: 3, y: 3}
           m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
           name: _Shininess
-        second: .15449214
+        second: .582661569
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: .580882311, g: .580882311, b: .580882311, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
           name: _SpecColor
         second: {r: .875, g: .850152135, b: .746323526, a: 1}
-      data:
-        first:
-          name: _ReflectColor
-        second: {r: .5, g: .5, b: .5, a: .501960814}

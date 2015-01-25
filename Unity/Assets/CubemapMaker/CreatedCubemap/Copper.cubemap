@@ -5,7 +5,7 @@ Cubemap:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: CreatedCubemap
+  m_Name: Copper
   m_AlphaIsTransparency: 0
   m_Width: 256
   m_Height: 256
