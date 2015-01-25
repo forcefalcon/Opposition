@@ -33,7 +33,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .873049557, g: .875001907, b: .733459532, a: .235294119}
+        second: {r: .873051465, g: .875003755, b: .733463168, a: .337254912}
       data:
         first:
           name: _Speed
