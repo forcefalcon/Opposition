@@ -22,8 +22,6 @@ public abstract class TrapController : MonoBehaviour {
 	private void CreateTrapGroup()
 	{
 		var groupTransform = transform;
-		groupTransform.localPosition = Placement.ToPosition() / RescaleFactor;
-		groupTransform.localScale = new Vector3(RescaleFactor,RescaleFactor,RescaleFactor);
 		var trapTileCount = (int)(RoomConstants.RoomSize / 2);
 		// determine the negative offset to apply to each tile for the result to be centered on
 		// the trap group;
@@ -39,7 +37,13 @@ public abstract class TrapController : MonoBehaviour {
 				childTransform.localPosition = new Vector3(i - childLocalOffset, 0, j - childLocalOffset);
 			}
 		}
-		
+		PositionTrapGroup(groupTransform);
+	}
+	
+	protected virtual void PositionTrapGroup(Transform groupTransform)
+	{
+		groupTransform.localPosition = Placement.ToPosition() / RescaleFactor;
+		groupTransform.localScale = new Vector3(RescaleFactor,RescaleFactor,RescaleFactor);
 	}
 
 	protected virtual void Update()
