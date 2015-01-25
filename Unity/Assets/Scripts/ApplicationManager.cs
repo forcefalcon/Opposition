@@ -30,6 +30,10 @@ public class ApplicationManager : MonoBehaviour
 		{
 			Application.Quit();
 		}
+		else if (Input.GetKeyDown (KeyCode.Backspace))
+		{
+			StartCoroutine(RestartIn(1f));
+		}
 	}
 
 	public void EndGame(bool playerDied)
