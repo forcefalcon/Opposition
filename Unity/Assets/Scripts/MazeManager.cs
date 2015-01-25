@@ -32,22 +32,24 @@ public class MazeManager : MonoBehaviour
 	public void Start(){
 		// testing - we would normally do a game setup screen
 		// where users either choose to generate a random map procedurally, 
-		// or enter a predefined seed used by the procedural generation.		
-		LoadMapFromFile(-1);
+		// or enter a predefined seed used by the procedural generation.
+		var index = MazeSelectionParameters.NextMazeIndex;
+		MazeSelectionParameters.NextMazeIndex = -1;
+		LoadMapFromFile(index);
 	}
 
-	public void LoadMapFromFile(int mapIndex)
+	public void LoadMapFromFile(int mazeIndex)
 	{
 		var pregeneratedMazes = Directory.GetFiles(Application.streamingAssetsPath + "/Data/", "Level*.maze");
-		string mazeFile;
-		if (mapIndex < 0)
+		if (mazeIndex < 0)
 		{
-			mazeFile = pregeneratedMazes[_Random.Next(pregeneratedMazes.Length)];
+			mazeIndex = _Random.Next(pregeneratedMazes.Length);
 		}
 		else
 		{
-			mazeFile = pregeneratedMazes[mapIndex % pregeneratedMazes.Length];
+			mazeIndex = mazeIndex % pregeneratedMazes.Length;
 		}
+		string mazeFile = pregeneratedMazes[mazeIndex];
 		
 		Serialization.MazeInfo mazeInfo = null;
 		using (var reader = new StreamReader(mazeFile)) {
