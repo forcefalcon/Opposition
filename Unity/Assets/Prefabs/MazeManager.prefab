@@ -23,7 +23,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.84035778, y: -1.29375267, z: -3.12775898}
+  m_LocalPosition: {x: -9.68071556, y: -2.58750534, z: -6.25551796}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -46,7 +46,7 @@ MonoBehaviour:
   DirtRoomPrefab: {fileID: 106676, guid: 535b44fb6ddb526449728633bc575ecf, type: 2}
   TrapGroupPrefab: {fileID: 159434, guid: a8165a582a544e945b2bc24c95c55d88, type: 2}
   PlayerPrefab: {fileID: 161376, guid: 3e0d99f788ba1b944bdc619256fd4831, type: 2}
-  UseOVR: 0
+  UseOVR: 1
   GoalRoomIDs: 
 --- !u!1001 &100100000
 Prefab:

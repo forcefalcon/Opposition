@@ -28,7 +28,7 @@ public class MazeManager : MonoBehaviour
 	public void Start(){
 		// testing
 		Serialization.MazeInfo mazeInfo = null;
-		using (var reader = new StreamReader(@"Assets\Data\Sample.maze")) {
+		using (var reader = new StreamReader(Application.streamingAssetsPath + "/Data/Sample.maze")) {
 			string json = reader.ReadToEnd();
 			mazeInfo = JsonConvert.DeserializeObject<Serialization.MazeInfo>(json);
 		}
