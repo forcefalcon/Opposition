@@ -40,6 +40,7 @@ namespace Serialization
 
 	public class MazeInfo {
 		public int StartingRoomID;
+		public Direction StartingDirection;
 		public List<int> GoalRoomIDs;
 		public List<RoomInfo> Rooms;
 		public List<TrapInfo> Traps;
