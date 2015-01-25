@@ -13,12 +13,11 @@ public class TrapManager : MonoBehaviour
 	public GameObject ProjectilesTrapPrefab;
 	
 	private float _Cooldown;
-	private Dictionary<KeyCode, TrapController> _TrapBindings;
+	private Dictionary<KeyCode, TrapController> _TrapBindings = new Dictionary<KeyCode, TrapController>();
 	
 	public void Awake()
 	{
 		Instance = this;
-		_TrapBindings = new Dictionary<KeyCode, TrapController>();
 	}
 	
 	public void Update()

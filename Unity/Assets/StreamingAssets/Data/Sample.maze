@@ -55,5 +55,12 @@
 			"Type": "Spikes",
 			"KeyBinding": "S"
 		}
+	],
+	"Collectibles": [
+		{
+			"ID": 1,
+			"RoomID": 1,
+			"Placement": "SouthEast"
+		}
 	]
 }

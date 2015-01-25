@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ProjectilesThrowerTrapController : TrapController {
-	public GameObject ProjectilesThrowerPrefab;
+public class ProjectilesTrapController : TrapController {
+	public GameObject ProjectilesPrefab;
 	
 	protected override GameObject TrapPrefab {
 		get {
-			return ProjectilesThrowerPrefab;
+			return ProjectilesPrefab;
 		}
 	}
 }
