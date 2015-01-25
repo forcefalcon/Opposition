@@ -38,11 +38,13 @@ public class ApplicationManager : MonoBehaviour
 		{
 			if (Input.GetKeyDown(KeyCode.F1))
 			{
-				StartCoroutine(LoadMaze(0));
+				MazeSelectionParameters.NextMazeIndex = 0;
+				StartCoroutine(RestartIn(1f));
 			}
 			else if (Input.GetKeyDown(KeyCode.F2))
 			{
-				StartCoroutine(LoadMaze(1));
+				MazeSelectionParameters.NextMazeIndex = 1;
+				StartCoroutine(RestartIn(1f));
 			}
 		}
 	}
@@ -101,11 +103,5 @@ public class ApplicationManager : MonoBehaviour
 	{
 		yield return new WaitForSeconds(time);
 		Application.LoadLevel(0);
-	}
-	
-	IEnumerator LoadMaze(int index)
-	{
-		MazeManager.Instance.LoadMapFromFile(index);
-		yield break;
 	}
 }
