@@ -27,7 +27,7 @@ public class CollectibleController : MonoBehaviour
 	public void Pickup(float completionRatio)
 	{
 		// Start animating, playing sound...
-		AkSoundEngine.SetRTPCValue("Accomplishment", completionRatio, this.gameObject);
+		AkSoundEngine.SetRTPCValue("Accomplishment", completionRatio * 100.0f, this.gameObject);
 
 		AkSoundEngine.PostEvent(OpenSound, this.gameObject);
 		

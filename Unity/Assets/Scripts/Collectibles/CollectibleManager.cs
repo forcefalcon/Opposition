@@ -15,18 +15,6 @@ public class CollectibleManager : MonoBehaviour
 		Instance = this;
 	}
 	
-	void Update()
-	{
-		if (_CollectiblesFound.Count >= CollectibleCount && ApplicationManager.Instance.IsPlaying)
-		{
-			_countdownToEnd -= Time.deltaTime;
-			if (_countdownToEnd < 0f)
-			{
-				ApplicationManager.Instance.EndGame(false);
-			}
-		}
-	}
-	
 	public bool Collect(CollectibleController collectible)
 	{
 		if (_CollectiblesFound.Contains(collectible.CollectibleID))
@@ -39,7 +27,7 @@ public class CollectibleManager : MonoBehaviour
 		
 		if (_CollectiblesFound.Count >= CollectibleCount)
 		{
-			_countdownToEnd = CollectibleController.PickupAnimDuration;
+			ApplicationManager.Instance.EndGame(false);
 		}
 		return true;
 	}

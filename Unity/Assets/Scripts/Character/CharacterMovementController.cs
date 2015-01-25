@@ -123,7 +123,7 @@ public class CharacterMovementController : MonoBehaviour
 		float moveInfluence = Acceleration * 0.1f * MoveScale;
 
 		// Run!
-		if (Input.GetKey(KeyCode.RightShift))
+		if (Input.GetKey(KeyCode.RightShift) || Mathf.Abs(Input.GetAxisRaw("GamepadTriggers")) > 0.3f)
 			moveInfluence *= 2.0f;
 
 		Quaternion ort = transform.rotation;
