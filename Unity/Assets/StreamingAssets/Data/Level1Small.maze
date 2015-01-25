@@ -121,7 +121,22 @@
 	"Collectibles": [
 		{
 			"ID": 1,
-			"RoomID": 3,
+			"RoomID": 2,
+			"Placement": "NorthWest"
+		},
+		{
+			"ID": 2,
+			"RoomID": 5,
+			"Placement": "NorthWest",
+		},	
+		{
+			"ID": 3,
+			"RoomID": 6,
+			"Placement": "SouthEast"
+		},
+		{
+			"ID": 4,
+			"RoomID": 7,
 			"Placement": "SouthWest"
 		}
 	]
