@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class FlameThrowerTrapController : TrapController {
 	private const float FLAME_TRIGGER_TIME = 0.3f;
 	private const float FLAME_WAIT_TIME = 3.0f;
-	private const float FLAME_COOLDOWN = FLAME_TRIGGER_TIME + FLAME_WAIT_TIME + 1.0f;
+	private const float FLAME_COOLDOWN = FLAME_TRIGGER_TIME + FLAME_WAIT_TIME + 3.0f;
 
 	private List<FlameThrowerController> _controllers = new List<FlameThrowerController>();
 	private float _triggerTime = 0.0f;

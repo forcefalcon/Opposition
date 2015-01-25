@@ -168,6 +168,7 @@ GameObject:
   - 111: {fileID: 11132348}
   - 114: {fileID: 11483922}
   - 65: {fileID: 6513708}
+  - 114: {fileID: 11485158}
   m_Layer: 0
   m_Name: Prefab_Projectiles_1x1
   m_TagString: Untagged
@@ -904,6 +905,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1023039b4f7cd14aa443a19452a1d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ProjectileTriggerSound: SFX_Traps_Mechanisms_Projectiles_E
+  ProjectileImpactSound: SFX_Traps_Impacts_Projectiles_E
+--- !u!114 &11485158
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759493f0e7382754ea8c97a7d88cc1d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpdateRate: .333000004
+  RaycastOffset: {x: 0, y: 1, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

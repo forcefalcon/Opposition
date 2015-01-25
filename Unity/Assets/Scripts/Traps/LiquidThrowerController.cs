@@ -5,7 +5,10 @@ using System.Linq;
 public class LiquidThrowerController : MonoBehaviour
 {
 	public GameObject VFX_LiquidThrowerInstance;
-	
+
+	public string LiquidTriggerSound;
+	public string LiquidImpactSound;
+
 	public enum State
 	{
 		Idle,
@@ -37,6 +40,7 @@ public class LiquidThrowerController : MonoBehaviour
 			break;
 		case State.Triggering:
 			VFX_LiquidThrowerInstance.SetActive(true);
+			AkSoundEngine.PostEvent(LiquidTriggerSound, this.gameObject);
 			break;
 		}
 		
@@ -45,8 +49,9 @@ public class LiquidThrowerController : MonoBehaviour
 	
 	void OnTriggerStay(Collider other)
 	{
-		if (_currentState == State.Waiting && other.tag == "Player")
+		if (_currentState == State.Waiting && other.tag == "Player" && ApplicationManager.Instance.IsPlaying)
 		{
+			AkSoundEngine.PostEvent(LiquidImpactSound, other.gameObject);
 			ApplicationManager.Instance.EndGame(true);
 		}
 	}

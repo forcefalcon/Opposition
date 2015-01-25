@@ -4,6 +4,7 @@ using System.Collections;
 public class SoundOcclusion : MonoBehaviour
 {
 	public float UpdateRate = 0.333f;
+	public Vector3 RaycastOffset = Vector3.zero;
 
 	private float _timer = 0.0f;
 	private Transform _transform;
@@ -12,6 +13,8 @@ public class SoundOcclusion : MonoBehaviour
 	void Start()
 	{
 		_transform = transform;
+
+		_timer = Random.Range(0.0f, UpdateRate);
 	}
 	
 	void Update()
@@ -28,6 +31,9 @@ public class SoundOcclusion : MonoBehaviour
 
 	void UpdateOcclusion()
 	{
+		if (this.gameObject.GetComponent<FlameThrowerController>() == null)
+			return;
+
 		if (_playerTransform == null)
 		{
 			GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -42,18 +48,21 @@ public class SoundOcclusion : MonoBehaviour
 			}
 		}
 
-		Vector3 start = _transform.position;
-		Vector3 end = _playerTransform.position;
+		Vector3 start = _transform.position + RaycastOffset;
+		Vector3 end = _playerTransform.position + Vector3.up;
 		Vector3 toEnd = end - start;
 		float toEndDist = toEnd.magnitude;
 		Vector3 toEndNorm = toEnd / toEndDist;
 
 		float obstruction = 0.0f;
-		if (Physics.Raycast(start, toEndNorm, toEndDist))
+		float occlusion = 0.0f;
+
+		int layerMask = 1 << LayerMask.NameToLayer("Walls");
+		if (Physics.Raycast(start, toEndNorm, toEndDist, layerMask))
 		{
 			obstruction = 100.0f;
 		}
 
-		AkSoundEngine.SetObjectObstructionAndOcclusion(this.gameObject, 0, obstruction, 0.0f);
+		AkSoundEngine.SetObjectObstructionAndOcclusion(this.gameObject, 0, obstruction, occlusion);
 	}
 }
