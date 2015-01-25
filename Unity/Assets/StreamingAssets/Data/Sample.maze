@@ -116,5 +116,12 @@
 			"Type": "Projectiles",
 			"KeyBinding": "V"
 		}
- 	]
+ 	],
+	"Collectibles": [
+		{
+			"ID": 1,
+			"RoomID": 3,
+			"Placement": "SouthWest"
+		}
+	]
 }
