@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PluginInfo Project="GGJ2015Wwise" Platform="Windows" Motion="false">
-	<Plugins/>
+	<Plugins>
+		<Plugin Name="Wwise Meter" ID="8454147"/>
+	</Plugins>
 </PluginInfo>
