@@ -68,8 +68,9 @@ public class MazeManager : MonoBehaviour
 		// spawn traps
 		foreach (Serialization.TrapInfo trapInfo in mazeInfo.Traps) {
 			var trapRoomGO = _Rooms[trapInfo.RoomID];
-			var trapGroupGO = (GameObject)GameObject.Instantiate(TrapGroupPrefab);
-			trapGroupGO.transform.parent = GetOrCreateChildGroup(trapRoomGO.transform, "Traps");
+			var trapRoomTransform = trapRoomGO.transform;
+			var trapGroupGO = (GameObject)GameObject.Instantiate(TrapGroupPrefab, trapRoomTransform.position, Quaternion.identity);
+			trapGroupGO.transform.parent = GetOrCreateChildGroup(trapRoomTransform, "Traps");
 			trapGroupGO.name = trapInfo.Type.ToString() + trapInfo.Placement.ToString();
 			trapGroupGO.AddComponent(SelectTrapController(trapInfo.Type));
 			
@@ -114,10 +115,10 @@ public class MazeManager : MonoBehaviour
 		var child = parent.Find(childName);
 		if (child == null)
 		{
-			var childGO = new GameObject();
+			var childGO = new GameObject(childName);
 			child = childGO.transform;
-			child.name = childName;
 			child.parent = parent;
+			child.localPosition = Vector3.zero;
 		}
 		return child;
 	}

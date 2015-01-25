@@ -15,11 +15,6 @@ public abstract class TrapController : MonoBehaviour {
 		}
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-	
 	private void CreateTrapGroup()
 	{
 		var groupTransform = transform;
