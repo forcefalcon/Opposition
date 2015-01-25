@@ -21,27 +21,20 @@ Properties {
 			#pragma vertex vert
 			#pragma fragment frag
 			#pragma fragmentoption ARB_precision_hint_fastest
-			#pragma multi_compile_particles
-
 			#include "UnityCG.cginc"
 
 			sampler2D _MainTex;
-			fixed4 _TintColor;
 			fixed4 _Color;
 			float _TextureScale;
 			float4 _Speed;
 			
 			struct appdata_t {
 				float4 vertex : POSITION;
-				fixed4 color : COLOR;
 			};
 
 			struct v2f {
 				float4 vertex : SV_POSITION;
-				fixed4 color : COLOR;
-				#ifdef SOFTPARTICLES_ON
 				float4 projPos : TEXCOORD1;
-				#endif
 				float3 worldPos : TEXCOORD2;
 				float3 worldPos2 : TEXCOORD3;
 			};
@@ -52,11 +45,10 @@ Properties {
 			{
 				v2f o;
 				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
-				#ifdef SOFTPARTICLES_ON
+
 				o.projPos = ComputeScreenPos (o.vertex);
 				COMPUTE_EYEDEPTH(o.projPos.z);
-				#endif
-				o.color = v.color * _Color;
+
 				o.worldPos = mul (_Object2World, v.vertex).xyz;
 				o.worldPos2 = o.worldPos;
 				o.worldPos.x += _Speed.x * _Time.x;
@@ -73,19 +65,15 @@ Properties {
 			
 			fixed4 frag (v2f i) : COLOR
 			{
-				#ifdef SOFTPARTICLES_ON
+
 				float sceneZ = LinearEyeDepth (UNITY_SAMPLE_DEPTH(tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(i.projPos))));
 				float partZ = i.projPos.z;
 				float fade = saturate (_InvFade * (sceneZ-partZ));
-				i.color.a *= fade;
-				#endif
-				
+
 				fixed4 fog1 = tex2D (_MainTex, i.worldPos.xz * _TextureScale);
 				fixed4 fog2 = tex2D (_MainTex, i.worldPos2.xz * _TextureScale);
 				
-				half4 prev = 2.0 * i.color * (fog1 + fog2);
-				prev.rgb *= prev.a;
-				return prev;
+				return (fog1 + fog2) * _Color * fade;
 			}
 			ENDCG 
 		}	
