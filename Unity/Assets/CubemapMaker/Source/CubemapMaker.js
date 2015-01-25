@@ -27,6 +27,7 @@ function Update()
 
 function CreateCubemap()
 {
+#if UNITY_EDITOR
 	size = Mathf.ClosestPowerOfTwo(size);
 	var camObject : GameObject = GameObject("CubemapCamera");
 	camObject.transform.parent = transform;
@@ -67,6 +68,7 @@ function CreateCubemap()
 
     if(Camera.main)
         Camera.main.enabled = true;
+#endif
 }
 
 private function Snapshot(cubemap : Cubemap, face : CubemapFace, cam : Camera)
