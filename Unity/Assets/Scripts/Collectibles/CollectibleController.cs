@@ -8,7 +8,7 @@ public class CollectibleController : MonoBehaviour
 
 	public void Start()
 	{
-		transform.localPosition = Placement.ToPosition();
+		transform.localPosition = Placement.ToPosition() + new Vector3(0, 1, 0);
 	}
 	
 	public void Pickup(float completionRatio)
