@@ -231,6 +231,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1899cf308716d92439b5cb0182ed508f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cube: {fileID: 153880}
+  VFX_Souls: {fileID: 149590}
   Placement: 0
   CollectibleID: 0
 --- !u!135 &13507974
