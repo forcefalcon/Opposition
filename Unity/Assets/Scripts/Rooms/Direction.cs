@@ -1,6 +1,4 @@
-﻿using System;
-
-[Flags]
+﻿
 public enum Direction
 {
 	North,

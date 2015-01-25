@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public class Room : MonoBehaviour
+public class RoomController : MonoBehaviour
 {
 	public List<Direction> Connections;
 	
