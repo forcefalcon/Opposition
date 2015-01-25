@@ -82,6 +82,7 @@ GameObject:
   - 4: {fileID: 461286}
   - 114: {fileID: 11461284}
   - 114: {fileID: 11461282}
+  - 114: {fileID: 11468826}
   m_Layer: 0
   m_Name: OVRCameraRig
   m_TagString: Untagged
@@ -1644,6 +1645,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RunSpeed: 8
+--- !u!114 &11468826
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83720cfffc66b1545b0f0140c830c944, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11482230
 MonoBehaviour:
   m_ObjectHideFlags: 1
