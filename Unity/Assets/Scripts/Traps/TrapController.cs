@@ -4,29 +4,26 @@ using System.Collections;
 public abstract class TrapController : MonoBehaviour {
 	public Placement Placement;
 	public Direction Direction;
-	
+
 	protected abstract GameObject TrapPrefab { get; }
-		
-	// Use this for initialization
-	void Start () {
+
+	protected float _cooldown = 0.0f;
+	
+	protected virtual void Start()
+	{
 		if (TrapPrefab != null)
 		{
 			CreateTrapGroup();
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-	
+
 	private void CreateTrapGroup()
 	{
 		var groupTransform = transform;
 		groupTransform.localPosition = GetPlacementPosition();
 		var trapTileCount = (int)(RoomConstants.RoomSize / 2);
 		var childLocalOffset = trapTileCount / 2f; // trap tiles are 1 meter squares
-		for(int i = 0; i < trapTileCount; i++)
+		for (int i = 0; i < trapTileCount; i++)
 		{
 			for (int j = 0; j < trapTileCount; j++)
 			{
@@ -37,13 +34,28 @@ public abstract class TrapController : MonoBehaviour {
 			}
 		}
 	}
-	
-	public virtual bool TryActivate()
+
+	protected virtual void Update()
 	{
+		if (_cooldown > 0.0f)
+		{
+			_cooldown -= Time.deltaTime;
+		}
+	}
+	
+	public bool TryActivate()
+	{
+		if (_cooldown > 0.0f)
+		{
+			return false;
+		}
+
 		// Start animating, keep track of timing
 		// Subclasses may do special stuff here
-		return false;
+		return InternalTryActivate();
 	}
+
+	protected abstract bool InternalTryActivate();
 	
 	private Vector3 GetPlacementPosition()
 	{

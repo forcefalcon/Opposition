@@ -9,4 +9,9 @@ public class LiquidThrowerTrapController : TrapController {
 			return LiquidThrowerPrefab;
 		}
 	}
+
+	protected override bool InternalTryActivate()
+	{
+		throw new System.NotImplementedException();
+	}
 }

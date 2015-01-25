@@ -9,4 +9,9 @@ public class FlameThrowerTrapController : TrapController {
 			return FlameThrowerPrefab;
 		}
 	}
+
+	protected override bool InternalTryActivate()
+	{
+		throw new System.NotImplementedException();
+	}
 }

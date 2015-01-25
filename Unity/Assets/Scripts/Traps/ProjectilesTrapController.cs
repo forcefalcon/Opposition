@@ -9,4 +9,9 @@ public class ProjectilesThrowerTrapController : TrapController {
 			return ProjectilesThrowerPrefab;
 		}
 	}
+
+	protected override bool InternalTryActivate()
+	{
+		throw new System.NotImplementedException();
+	}
 }
