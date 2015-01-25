@@ -5,6 +5,8 @@ public class CollectibleManager : MonoBehaviour
 {
 	public static CollectibleManager Instance { get; private set; }
 	
+	public int CollectibleCount;
+	
 	private HashSet<int> _CollectiblesFound = new HashSet<int>();
 	
 	public void Awake()
@@ -12,17 +14,21 @@ public class CollectibleManager : MonoBehaviour
 		Instance = this;
 	}
 	
-	public void Collect(CollectibleController collectible)
+	public bool Collect(CollectibleController collectible)
 	{
 		if (_CollectiblesFound.Contains(collectible.CollectibleID))
 		{
 			Debug.LogWarning("Collectible with ID " + collectible.CollectibleID + " has already been picked up.");
-			return;
+			return false;
 		}
 		_CollectiblesFound.Add(collectible.CollectibleID);
-		collectible.Pickup();
+		collectible.Pickup(_CollectiblesFound.Count / (float)CollectibleCount);
 		
-		// Detect if all collectibles were found and send game end event if so
+		if (_CollectiblesFound.Count >= CollectibleCount)
+		{
+			// TODO Do something to end the game
+		}
+		return true;
 	}
 	
 	public void Clear()

@@ -11,9 +11,17 @@ public class CollectibleController : MonoBehaviour
 		transform.localPosition = Placement.ToPosition();
 	}
 	
-	public void Pickup()
+	public void Pickup(float completionRatio)
 	{
 		// Start animating, playing sound...
+	}
+	
+	void OnTriggerEnter(Collider other)
+	{
+		if (CollectibleManager.Instance.Collect(this))
+		{
+			enabled = false;
+		}
 	}
 }
 

@@ -45,9 +45,10 @@ MonoBehaviour:
   WaterRoomPrefab: {fileID: 185038, guid: c09f9ad5da99af6488befb72973b5605, type: 2}
   DirtRoomPrefab: {fileID: 121312, guid: 127794223a4a51b4290e6b81e40c5422, type: 2}
   TrapGroupPrefab: {fileID: 159434, guid: a8165a582a544e945b2bc24c95c55d88, type: 2}
-  CollectiblePrefab: {fileID: 0}
+  CollectiblePrefab: {fileID: 160682, guid: e53f42aa1320c0d498139f5bcd36bcb0, type: 2}
   PlayerPrefab: {fileID: 161376, guid: 3e0d99f788ba1b944bdc619256fd4831, type: 2}
-  UseOVR: 0
+  UseOVR: 1
+  levelName: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

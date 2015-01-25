@@ -93,13 +93,11 @@ public class MazeManager : MonoBehaviour
 		// Spawn collectibles
 		foreach (Serialization.CollectibleInfo collectibleInfo in mazeInfo.Collectibles) {
 			var collectibleRoomGO = _Rooms[collectibleInfo.RoomID];
-			var collectibleGO = (GameObject)GameObject.CreatePrimitive(PrimitiveType.Cube);//(GameObject)GameObject.Instantiate(CollectiblePrefab);
+			var collectibleGO = (GameObject)GameObject.Instantiate(CollectiblePrefab);
 			collectibleGO.transform.parent = collectibleRoomGO.transform;
 			collectibleGO.name = "Collectible";
 			
-			// Temporary - the CollectiblePrefab will have a CollectibleController
-			var collectibleController = collectibleGO.AddComponent("CollectibleController") as CollectibleController;
-			// var collectibleController = collectibleGO.GetComponent<CollectibleController>();
+			var collectibleController = collectibleGO.GetComponent<CollectibleController>();
 			if (collectibleController != null)
 			{
 				collectibleController.CollectibleID = collectibleInfo.ID;
