@@ -53,6 +53,7 @@ public class MazeManager : MonoBehaviour
 		}
 		
 		TrapManager.Instance.GlobalTrapCooldown = mazeInfo.GlobalTrapCooldown;
+		CollectibleManager.Instance.CollectibleCount = mazeInfo.Collectibles.Count;
 		
 		// Spawn rooms
 		foreach (Serialization.RoomInfo roomInfo in mazeInfo.Rooms) {

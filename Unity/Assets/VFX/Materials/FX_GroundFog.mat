@@ -37,4 +37,4 @@ Material:
       data:
         first:
           name: _Speed
-        second: {r: 3.02999997, g: 2.55999994, b: -1.96000004, a: -2.16000009}
+        second: {r: 5, g: 5, b: -4, a: -3}

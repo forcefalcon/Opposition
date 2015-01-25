@@ -4,14 +4,27 @@ using System.Collections.Generic;
 public class CollectibleManager : MonoBehaviour
 {
 	public static CollectibleManager Instance { get; private set; }
-	
+
 	public int CollectibleCount;
 	
 	private HashSet<int> _CollectiblesFound = new HashSet<int>();
+	private float _countdownToEnd;
 	
-	public void Awake()
+	void Awake()
 	{
 		Instance = this;
+	}
+	
+	void Update()
+	{
+		if (_CollectiblesFound.Count >= CollectibleCount && ApplicationManager.Instance.IsPlaying)
+		{
+			_countdownToEnd -= Time.deltaTime;
+			if (_countdownToEnd < 0f)
+			{
+				ApplicationManager.Instance.EndGame(false);
+			}
+		}
 	}
 	
 	public bool Collect(CollectibleController collectible)
@@ -26,7 +39,7 @@ public class CollectibleManager : MonoBehaviour
 		
 		if (_CollectiblesFound.Count >= CollectibleCount)
 		{
-			// TODO Do something to end the game
+			_countdownToEnd = CollectibleController.PickupAnimDuration;
 		}
 		return true;
 	}

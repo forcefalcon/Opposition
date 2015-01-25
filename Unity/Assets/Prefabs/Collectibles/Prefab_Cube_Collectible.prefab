@@ -231,6 +231,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1899cf308716d92439b5cb0182ed508f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cube: {fileID: 153880}
+  VFX_Souls: {fileID: 149590}
   Placement: 0
   CollectibleID: 0
 --- !u!135 &13507974
@@ -300,7 +302,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .400000006
+          value: .200000003
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -510,14 +512,14 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     cnt0: 10
-    cnt1: 30
+    cnt1: 9
     cnt2: 30
     cnt3: 30
     time0: 0
-    time1: 0
+    time1: .25
     time2: 0
     time3: 0
-    m_BurstCount: 1
+    m_BurstCount: 2
   SizeModule:
     enabled: 1
     curve:
