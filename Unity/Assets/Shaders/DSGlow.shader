@@ -35,8 +35,8 @@ SubShader {
 			fixed3 glowTex = tex2D(_GlowTex,IN.uv_MainTex);
 			
 			o.Albedo = c.rgb;
-		 	o.Specular = c.a;
-		 	o.Gloss = _Shininess;
+		 	o.Specular = _Shininess;
+		 	o.Gloss = c.a;
           	o.Emission = glowTex.rgb * _GlowColor.rgb * (exp(_GlowColor.a * 10.0f));;
 			o.Alpha = c.a;
 		}
