@@ -113,7 +113,7 @@
 			"ID": 10,
 			"RoomID": 7,
 			"Placement": "NorthWest",
-			"Type": "Arrows",
+			"Type": "Projectiles",
 			"KeyBinding": "V"
 		}
  	]
