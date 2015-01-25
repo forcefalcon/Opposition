@@ -1546,7 +1546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Acceleration: .100000001
   Damping: .300000012
-  RotationAmount: 1.5
+  RotationAmount: 1
   MouseRotationMultiplier: 3.25
   BackAndSideDampen: .5
   GravityModifier: .379000008
