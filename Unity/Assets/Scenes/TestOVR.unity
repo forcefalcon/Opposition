@@ -1461,7 +1461,7 @@ GameObject:
   - 114: {fileID: 1411410119}
   m_Layer: 0
   m_Name: MazePlayerController
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1681,6 +1681,10 @@ Prefab:
     - target: {fileID: 461376, guid: 3e0d99f788ba1b944bdc619256fd4831, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 161376, guid: 3e0d99f788ba1b944bdc619256fd4831, type: 2}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e0d99f788ba1b944bdc619256fd4831, type: 2}
